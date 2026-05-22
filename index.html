@@ -30,7 +30,7 @@
           <div>
             <p class="eyebrow">Site en construction</p>
             <p>
-              Cette webapp est une version de travail. Les contenus issus des ressources sources, de la veille et des documents internes sont progressivement réécrits pour former une ressource autonome, lisible hors de son contexte de production.
+              Cette webapp est une version de travail. Les contenus issus des sources de travail, de la veille et des documents internes sont progressivement réécrits pour former une ressource autonome, lisible hors de son contexte de production.
             </p>
           </div>
           <button class="help-button" type="button" data-help-title="Version de travail" data-help-body="Le site est utilisable dans le navigateur, mais son édition reste en cours : certaines rubriques vont encore être consolidées, sourcées et harmonisées.">?</button>
@@ -158,6 +158,9 @@
             </div>
             <button class="help-button" type="button" data-help-title="Notions clés" data-help-body="Cliquez sur une notion pour ouvrir sa définition complète issue du lexique importé. Le lexique complet reste disponible dans Ressources.">?</button>
           </div>
+          <p class="section-bridge">
+            Ces notions servent de vocabulaire commun avant d'entrer dans les fiches plus longues : elles évitent de confondre jeu sérieux, usage pédagogique d'un jeu existant, ludification et dégamification.
+          </p>
           <div id="home-concepts" class="concept-grid"></div>
         </section>
 
@@ -170,6 +173,9 @@
             </div>
             <button class="help-button" type="button" data-help-title="Lire cette section" data-help-body="Cette section est pensée comme un mini-cours intégré. Les cartes ouvrent des contenus complets, sans quitter la webapp.">?</button>
           </div>
+          <p class="section-bridge">
+            Ces fiches approfondissent progressivement les bases. Elles sont pensées pour une personne qui découvre le sujet et veut comprendre les familles, les distinctions, les théories utiles et les points de vigilance.
+          </p>
           <div id="definition-modules" class="module-grid"></div>
         </section>
 
@@ -182,6 +188,9 @@
             </div>
             <button class="help-button" type="button" data-help-title="Lexique prioritaire" data-help-body="Le CSV contient davantage que ces notions. Ici, les termes fondamentaux sont remontés pour éviter qu'ils soient noyés dans les mécaniques de gamification.">?</button>
           </div>
+          <p class="section-bridge">
+            Le lexique prioritaire complète les fiches : il donne des définitions courtes, utiles pour relire ou préparer une activité sans parcourir tout le corpus.
+          </p>
           <div id="priority-lexicon" class="resource-grid"></div>
         </section>
 
@@ -351,6 +360,10 @@
             <article><h3>Matériel minimal</h3><p>Plateau, cartes questions, cartes règles, dé, pions, jalons, fiche animateur, grille d'observation et support de débriefing.</p></article>
             <article><h3>Critères de test</h3><p>Partie de 30 minutes maximum, règles comprises sans surcharge, questions alignées, feedbacks exploitables, progression lisible et débriefing possible.</p></article>
           </div>
+          <div class="action-row">
+            <button class="primary-action" type="button" data-jump="studio">Construire mon prototype</button>
+            <button class="secondary-action" type="button" data-jump="ressources">Consulter les gabarits</button>
+          </div>
         </section>
       </section>
 
@@ -359,7 +372,7 @@
           <div class="section-title with-help">
             <div>
               <p class="eyebrow">Production</p>
-              <h1>Studio et outils du kit</h1>
+              <h1 id="studio-title">Studio et outils du kit</h1>
             </div>
             <button class="help-button" type="button" data-help-title="Studio et outils" data-help-body="Cette partie sert à produire : fiche de cadrage, matrice d'alignement, cartes questions et supports exportables. Les données restent dans votre navigateur.">?</button>
           </div>
@@ -367,7 +380,7 @@
             Une fois les bases comprises et la méthode posée, le studio aide à formuler un projet, choisir une piste de jeu, aligner les mécaniques et fabriquer les premiers supports.
           </p>
           <div class="kit-grid">
-            <button class="tool-card" type="button" data-jump="studio">
+            <button class="tool-card" type="button" data-scroll-target="studio-cadrage">
               <span class="type">Cadrage</span>
               <strong>Fiche de conception</strong>
               <span>Public, durée, objectif, contrainte et recommandation de type de jeu.</span>
@@ -395,11 +408,11 @@
         </section>
 
         <div class="workspace">
-          <section class="panel project-panel">
+          <section class="panel project-panel" id="studio-cadrage">
             <div class="panel-heading with-help">
               <div>
                 <p class="eyebrow">Conception</p>
-                <h1 id="studio-title">Studio de cadrage</h1>
+                <h2 id="studio-cadrage-title">Studio de cadrage</h2>
               </div>
               <button class="help-button" type="button" data-help-title="Studio de cadrage" data-help-body="Remplissez ces champs pour produire une première fiche de conception. Le studio recommande un type de jeu et peut envoyer une ligne vers la matrice d'alignement.">?</button>
             </div>

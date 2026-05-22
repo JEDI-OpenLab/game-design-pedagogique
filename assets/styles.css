@@ -276,6 +276,13 @@ h3 {
   margin-top: 18px;
 }
 
+.section-bridge {
+  max-width: 900px;
+  color: var(--muted);
+  margin-top: -6px;
+  margin-bottom: 18px;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);

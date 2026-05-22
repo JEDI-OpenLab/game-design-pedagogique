@@ -819,6 +819,12 @@ function bindEvents() {
     const jump = event.target.closest("[data-jump]");
     if (jump) showTab(jump.dataset.jump);
 
+    const scrollTarget = event.target.closest("[data-scroll-target]");
+    if (scrollTarget) {
+      const target = document.getElementById(scrollTarget.dataset.scrollTarget);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     const openTerm = event.target.closest("[data-open-term]");
     if (openTerm) {
       const item = findTerm(openTerm.dataset.openTerm);
@@ -828,6 +834,9 @@ function bindEvents() {
     const openLibrary = event.target.closest("[data-open-library]");
     if (openLibrary) {
       showTab("bibliotheque");
+      state.libraryFilter = "all";
+      $$(".filter-chip").forEach((chip) => chip.classList.toggle("is-active", chip.dataset.libraryFilter === "all"));
+      renderLibrary();
       renderLibraryReader(openLibrary.dataset.openLibrary);
     }
 
