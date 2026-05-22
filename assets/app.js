@@ -214,24 +214,39 @@ const libraryDocuments = [
     id: "exemple-trivial",
     type: "exemple",
     title: "Trivial Pursuit pédagogique",
-    summary: "Exemple de dégamification avec cahier des charges remanié.",
+    summary: "Exemple issu du cahier des charges d'un atelier pédagogique d'une demi-journée.",
     body: `
-      <p>Le Trivial Pursuit pédagogique est un exemple de dégamification : un jeu connu sert de base, puis ses règles sont simplifiées et transformées pour servir des objectifs d'apprentissage.</p>
+      <p>Cet exemple reprend le cahier des charges d'un atelier pédagogique d'une demi-journée intitulé <em>Jouer avec ses méthodes d'enseignement : dégamifier pour motiver</em>. Il sert ici de cas guidé autonome pour comprendre comment adapter un jeu connu à des objectifs d'apprentissage.</p>
       <figure class="media-frame rich-media">
         <img src="assets/trivial-pursuit-plateau-couleurs.png" alt="Plateau de Trivial Pursuit pédagogique">
         <figcaption>Plateau réutilisable pour une variante pédagogique.</figcaption>
       </figure>
-      <h3>Cahier des charges</h3>
+      <h3>Contexte</h3>
       <ul>
-        <li><strong>Objectif pédagogique :</strong> faire travailler les notions de serious game, serious gaming, dégamification, objectifs ludiques/pédagogiques, instructionnisme, constructionnisme et D.I.C.E.</li>
-        <li><strong>Objectif ludique :</strong> répondre correctement, garder la main, collecter les jalons et atteindre le centre du plateau.</li>
-        <li><strong>Questions :</strong> connaissance pour les cases standard, compréhension pour les jalons, application pour le sprint final.</li>
-        <li><strong>Règles :</strong> supprimer les règles originales qui ralentissent la partie ou ne servent aucun apprentissage.</li>
-        <li><strong>Matériel :</strong> plateau, cartes questions, dé, pions, jalons, fiche animateur et support de débriefing.</li>
-        <li><strong>Test :</strong> partie de 30 minutes maximum, règles compréhensibles, feedbacks exploitables et débriefing possible.</li>
+        <li><strong>Contexte :</strong> le jeu à créer doit pouvoir être utilisable dans toute activité pédagogique visant à atteindre les objectifs cités dans le cahier des charges.</li>
+        <li><strong>Public cible :</strong> toute personne ayant une mission d'enseignement, d'animation, de formation ou de conception pédagogique à Centrale Lille.</li>
+        <li><strong>Besoin :</strong> favoriser l'engagement des étudiants par le recours au jeu d'apprentissage.</li>
       </ul>
-      <h3>Démarche</h3>
-      <ol><li>Définir les objectifs et contenus.</li><li>Analyser les règles originales.</li><li>Retirer les règles parasites.</li><li>Créer les cartes, le plateau et les conditions de victoire.</li><li>Tester puis corriger.</li></ol>
+      <h3>Objectifs pédagogiques</h3>
+      <ol>
+        <li>Définir ce qu'est un jeu d'apprentissage et l'ensemble des notions corrélées, niveau 1 : mémoriser.</li>
+        <li>Associer des exemples d'utilisation de jeux d'apprentissage avec la typologie des jeux utilisés et les types d'objectifs pédagogiques visés, niveau 2 : comprendre.</li>
+        <li>Décrire et appliquer les techniques de scénarisation, d'adaptation et de développement de jeux d'apprentissage dans un cadre d'enseignement, niveau 3 : appliquer.</li>
+      </ol>
+      <h3>Choix du jeu</h3>
+      <p>La création du jeu se fait par articulation entre dégamification et serious gaming. Le jeu de base choisi est le Trivial Pursuit, car il permet d'utiliser les cases intermédiaires, les cases camembert et la progression finale pour poser des questions de mémorisation, de compréhension et d'application.</p>
+      <p>Il est aussi relativement universel, bien connu, facile à modifier et simple à créer manuellement. Ses modalités de victoire restent des prétextes pour générer de l'apprentissage et favoriser l'engagement.</p>
+      <h3>Contraintes de mise en œuvre</h3>
+      <ul>
+        <li>Partie de 30 minutes maximum.</li>
+        <li>Au minimum 12 questions de niveau 1 et 3 questions de niveau 2.</li>
+        <li>Questions d'application pour la progression finale.</li>
+        <li>Règles simplifiées : retirer ce qui ralentit ou détourne des objectifs pédagogiques.</li>
+        <li>Pas de thèmes décoratifs : une case correspond à une question tirée au hasard.</li>
+        <li>Une carte contient une question, une réponse attendue et, si possible, un feedback.</li>
+      </ul>
+      <h3>Déroulé source</h3>
+      <table><tr><th>Moment</th><th>Étape</th><th>Actions</th></tr><tr><td>14h20-14h45</td><td>Définir</td><td>Présenter le cahier des charges, les objectifs, les contraintes et les règles à analyser.</td></tr><tr><td>14h45-15h30</td><td>Imaginer</td><td>Trier, retirer, modifier ou créer les règles nécessaires.</td></tr><tr><td>15h30-16h30</td><td>Créer</td><td>Produire les cartes, le plateau, les pions, les camemberts, le dé et les règles.</td></tr><tr><td>16h30-17h00</td><td>Évaluer</td><td>Jouer, observer, noter les améliorations et vérifier les apprentissages.</td></tr></table>
     `,
   },
   {
