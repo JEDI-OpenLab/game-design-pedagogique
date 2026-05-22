@@ -107,15 +107,16 @@ const definitionModules = [
     tag: "Processus",
     summary: "ADDIE cadre le design pédagogique ; D.I.C.E. cadre la création du jeu.",
     body: `
-      <p>ADDIE structure le design pédagogique : analyser, designer, développer, implémenter, évaluer.</p>
-      <p>D.I.C.E. structure le game design pédagogique : définir le contenu sérieux, imaginer le principe de jeu, créer le prototype, évaluer l'efficacité et la jouabilité.</p>
-      <p>Les deux méthodes se complètent : ADDIE évite de perdre le besoin pédagogique ; D.I.C.E. aide à passer de ce besoin à un prototype jouable, testable et améliorable.</p>
+      <p><strong>ADDIE</strong> est un cadre général de design pédagogique : analyser, designer, développer, implémenter, évaluer. Il aide à partir du besoin, du public, des objectifs et des critères d'évaluation avant de produire des supports.</p>
+      <p><strong>D.I.C.E.</strong> est documenté dans le corpus du kit comme modèle générique de conception d'un serious game pédagogique : définir, imaginer, créer, évaluer. On l'utilise ici comme méthode opérationnelle pour passer du cadrage à un prototype jouable.</p>
+      <p>Les deux méthodes se complètent : ADDIE garde le cap pédagogique global ; D.I.C.E. aide à concevoir le jeu lui-même, ses règles, ses supports, ses feedbacks et ses tests.</p>
       <ul>
-        <li><strong>Définir</strong> : besoins, contexte, ressources, objectifs et contenus sérieux.</li>
-        <li><strong>Imaginer</strong> : concept de jeu, mécaniques, règles, scénario, énigmes ou cartes.</li>
-        <li><strong>Créer</strong> : prototype, supports de jeu, consignes et documentation.</li>
-        <li><strong>Évaluer</strong> : tests usagers, bilan, satisfaction, évaluation et itérations.</li>
+        <li><strong>Définir</strong> : besoin, public, contraintes, objectifs pédagogiques, contenus sérieux et critères de réussite.</li>
+        <li><strong>Imaginer</strong> : objectif ludique, type de jeu, mécaniques, règles, scénario, feedbacks et traces.</li>
+        <li><strong>Créer</strong> : prototype jouable, supports, consignes, matériel, conditions de victoire et règles d'animation.</li>
+        <li><strong>Évaluer</strong> : tests, observation, apprentissages, jouabilité, débriefing et itérations.</li>
       </ul>
+      <p><strong>Question pivot :</strong> pour réussir le jeu, que doit faire le joueur, et en quoi cette action l'aide-t-elle à apprendre ?</p>
     `,
   },
 ];
@@ -189,12 +190,23 @@ const libraryDocuments = [
     title: "Méthode ADDIE + D.I.C.E.",
     summary: "Passer du besoin pédagogique au prototype testable.",
     body: definitionModules[5].body + `
+      <h3>Objectifs de conception</h3>
+      <ul>
+        <li>formuler un besoin pédagogique et des objectifs observables ;</li>
+        <li>distinguer objectif pédagogique et objectif ludique ;</li>
+        <li>transformer un apprentissage visé en actions de joueur ;</li>
+        <li>choisir ou adapter des mécaniques utiles ;</li>
+        <li>produire un prototype jouable et testable ;</li>
+        <li>évaluer la jouabilité et les apprentissages.</li>
+      </ul>
       <figure class="media-frame rich-media">
         <img src="assets/addie-dice.jpg" alt="Schéma ADDIE DICE et livrables">
         <figcaption>Correspondance entre ADDIE, D.I.C.E. et les livrables de conception.</figcaption>
       </figure>
       <h3>Correspondance rapide</h3>
-      <table><tr><th>ADDIE</th><th>D.I.C.E.</th><th>Livrable</th></tr><tr><td>Analyse</td><td>Définir</td><td>Fiche de cadrage</td></tr><tr><td>Design</td><td>Imaginer</td><td>Matrice objectifs-mécaniques</td></tr><tr><td>Développement</td><td>Créer</td><td>Prototype</td></tr><tr><td>Évaluation</td><td>Évaluer</td><td>Retours et itérations</td></tr></table>
+      <table><tr><th>ADDIE</th><th>D.I.C.E.</th><th>Livrable</th></tr><tr><td>Analyse</td><td>Définir</td><td>Fiche de cadrage : besoin, public, objectifs, contraintes.</td></tr><tr><td>Design</td><td>Définir / Imaginer</td><td>Matrice objectifs-mécaniques-feedbacks-traces.</td></tr><tr><td>Développement</td><td>Créer</td><td>Prototype : règles, cartes, plateau, scénario, consignes et matériel.</td></tr><tr><td>Implémentation</td><td>Créer / Évaluer</td><td>Animation testée : déroulé, médiation, aides et débriefing.</td></tr><tr><td>Évaluation</td><td>Évaluer</td><td>Observations, retours, critères d'apprentissage, itérations.</td></tr></table>
+      <h3>Sources de travail</h3>
+      <p>ADDIE vient du design pédagogique général. D.I.C.E. est repris ici depuis le lexique de la ludification pédagogique et l'atelier Trivial Pursuit comme modèle de travail pour créer un serious game pédagogique.</p>
     `,
   },
   {
@@ -474,11 +486,13 @@ function navTab(tabName) {
 function showTab(tabName) {
   const target = canonicalTab(tabName);
   const navTarget = navTab(target);
-  if (!$(`#${target}`)) return;
+  if (!$(`#${target}.view`)) return;
   $$(".tab").forEach((item) => item.classList.toggle("is-active", item.dataset.tab === navTarget));
   $$(".view").forEach((item) => item.classList.toggle("is-active", item.id === target));
   history.replaceState(null, "", `#${target}`);
   window.scrollTo(0, 0);
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+  setTimeout(() => window.scrollTo(0, 0), 0);
 }
 
 function projectValues() {

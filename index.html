@@ -302,55 +302,161 @@
       </section>
 
       <section id="concevoir" class="view" aria-labelledby="concevoir-title">
-        <section class="surface">
+        <section class="surface hero-surface">
           <div class="section-title with-help">
             <div>
               <p class="eyebrow">Méthode de conception</p>
-              <h1 id="concevoir-title">Comment concevoir un jeu sérieux</h1>
+              <h1 id="concevoir-title">Concevoir un jeu sérieux pédagogique</h1>
             </div>
-            <button class="help-button" type="button" data-help-title="Concevoir avec D.I.C.E." data-help-body="Cette partie commence après la présentation du jeu sérieux. Elle explique comment passer d'un besoin pédagogique à un prototype jouable, testable et améliorable.">?</button>
+            <button class="help-button" type="button" data-help-title="Lire cette partie" data-help-body="Cette partie explique la progression complète : objectifs, double objectif pédagogique/ludique, cadre ADDIE, méthode D.I.C.E., livrables, puis exemple guidé.">?</button>
           </div>
           <p class="lead">
-            Concevoir un jeu sérieux, ce n'est pas choisir un habillage ludique. C'est transformer un objectif d'apprentissage en actions de joueur, règles, feedbacks, traces et débriefing. Le modèle D.I.C.E. sert ici de colonne vertébrale.
+            Concevoir un jeu sérieux ne consiste pas à ajouter une couche ludique à un cours. C'est transformer un besoin pédagogique en objectifs, actions de joueur, règles, feedbacks, traces et débriefing.
           </p>
-          <div class="method-layout">
-            <figure class="media-frame method-map">
-              <img src="assets/addie-dice.jpg" alt="Schéma de correspondance entre ADDIE, DICE et les livrables d'un jeu sérieux pédagogique">
-              <figcaption>ADDIE cadre le design pédagogique global ; D.I.C.E. accompagne la création du jeu lui-même.</figcaption>
-            </figure>
-            <div class="dice-steps">
-              <article><strong>Définir</strong><span>Besoins, contexte, public, contraintes, objectifs pédagogiques et contenus sérieux.</span></article>
-              <article><strong>Imaginer</strong><span>Principe de jeu, mécaniques, règles, scénario, énigmes, cartes ou situations.</span></article>
-              <article><strong>Créer</strong><span>Prototype jouable, supports, consignes, gabarits, matériel et conditions de victoire.</span></article>
-              <article><strong>Évaluer</strong><span>Tests, observation, retours, traces d'apprentissage, débriefing et itérations.</span></article>
-            </div>
+          <div class="objective-list method-objectives">
+            <article>Formuler un besoin et des objectifs pédagogiques observables.</article>
+            <article>Distinguer l'objectif pédagogique de l'objectif ludique.</article>
+            <article>Transformer un apprentissage visé en actions de joueur.</article>
+            <article>Choisir ou adapter des mécaniques utiles.</article>
+            <article>Produire un prototype jouable, léger et testable.</article>
+            <article>Évaluer la jouabilité et les apprentissages.</article>
+          </div>
+          <div class="action-row">
+            <button class="primary-action" type="button" data-scroll-target="dice-method">Voir D.I.C.E.</button>
+            <button class="secondary-action" type="button" data-scroll-target="trivial-case">Voir le cas Trivial Pursuit</button>
           </div>
         </section>
 
         <section class="surface">
           <div class="section-title with-help">
             <div>
-              <p class="eyebrow">Invariants de conception</p>
-              <h2>Ce qu'il faut poser avant de prototyper</h2>
+              <p class="eyebrow">Point de départ</p>
+              <h2>Faire tenir ensemble apprentissage et jeu</h2>
             </div>
-            <button class="help-button" type="button" data-help-title="Invariants" data-help-body="Ces cartes résument les points qui doivent rester visibles pendant toute la conception : double objectif, alignement, feedback, trace et boucle d'apprentissage.">?</button>
+            <button class="help-button" type="button" data-help-title="Double objectif" data-help-body="Un jeu sérieux doit articuler ce que l'on veut faire apprendre et ce que le joueur cherche à accomplir. Si ces deux objectifs se contredisent, le jeu devient fragile.">?</button>
           </div>
           <div class="principle-grid">
             <article>
-              <h3>Deux dimensions</h3>
-              <p>La dimension sérieuse correspond à la finalité utile : apprendre, s'entraîner, sensibiliser, décider. La dimension ludique correspond au système de jeu : but, règles, défi, progression, interactions.</p>
+              <h3>Objectif pédagogique</h3>
+              <p>Il dit ce que les apprenants devront savoir, comprendre, appliquer, analyser, évaluer ou créer à l'issue de l'activité.</p>
             </article>
             <article>
-              <h3>Deux objectifs</h3>
-              <p>L'objectif pédagogique dit ce que l'apprenant doit savoir ou savoir-faire. L'objectif ludique dit ce que le joueur cherche à accomplir. Un bon design les fait travailler ensemble.</p>
+              <h3>Objectif ludique</h3>
+              <p>Il dit ce que les joueurs cherchent à réussir dans le jeu : résoudre, explorer, gagner, coopérer, débattre, produire, survivre ou progresser.</p>
             </article>
             <article>
-              <h3>Un alignement</h3>
-              <p>Les mécaniques, supports, règles, feedbacks et évaluations doivent soutenir les apprentissages visés. Un élément ludique non aligné doit être simplifié, transformé ou retiré.</p>
+              <h3>Actions de joueur</h3>
+              <p>Le joueur doit faire quelque chose qui mobilise réellement l'apprentissage : choisir, classer, expliquer, justifier, simuler, corriger ou créer.</p>
             </article>
             <article>
-              <h3>Une boucle</h3>
-              <p>Le joueur rencontre une situation, agit, reçoit un feedback, puis ajuste son action. Cette boucle d'essai-feedback-remédiation est le cœur pédagogique du jeu.</p>
+              <h3>Alignement</h3>
+              <p>Règles, mécaniques, supports, feedbacks, traces et évaluation doivent soutenir les apprentissages visés. Sinon, il faut simplifier ou retirer.</p>
+            </article>
+          </div>
+          <div class="definition-box">
+            <p><strong>Question pivot :</strong> pour réussir le jeu, que doit faire le joueur, et en quoi cette action l'aide-t-elle à apprendre ?</p>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Cadre pédagogique</p>
+              <h2>ADDIE : partir du design pédagogique global</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="ADDIE" data-help-body="ADDIE est un modèle générique de design pédagogique. Il aide à ne pas commencer par l'idée de jeu, mais par l'analyse du besoin, du public, des objectifs et de l'évaluation.">?</button>
+          </div>
+          <p class="section-bridge">
+            ADDIE structure l'ingénierie pédagogique : Analyse, Design, Développement, Implémentation, Évaluation. Dans ce kit, il sert de cadre large : avant de fabriquer un jeu, on vérifie pourquoi l'activité existe, pour qui, avec quels objectifs et comment elle sera évaluée.
+          </p>
+          <div class="method-flow">
+            <article><strong>Analyse</strong><span>Besoin, public, contexte, prérequis, contraintes, ressources.</span></article>
+            <article><strong>Design</strong><span>Objectifs, scénario pédagogique, stratégie, évaluation, traces attendues.</span></article>
+            <article><strong>Développement</strong><span>Supports, contenus, règles, consignes, prototypes et ressources.</span></article>
+            <article><strong>Implémentation</strong><span>Animation, médiation, accompagnement, conditions concrètes d'usage.</span></article>
+            <article><strong>Évaluation</strong><span>Résultats, retours, satisfaction, apprentissages, décisions d'amélioration.</span></article>
+          </div>
+          <div class="definition-box">
+            <p><strong>À retenir :</strong> ADDIE ne dit pas quel jeu créer. Il empêche de concevoir un jeu sans besoin pédagogique, sans public défini ou sans critère d'évaluation.</p>
+          </div>
+        </section>
+
+        <section class="surface" id="dice-method">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Méthode du kit</p>
+              <h2>D.I.C.E. : concevoir le jeu sérieux lui-même</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="D.I.C.E." data-help-body="D.I.C.E. est documenté dans le lexique et les ressources de l'atelier comme modèle générique de conception d'un serious game pédagogique : Définir, Imaginer, Créer, Évaluer.">?</button>
+          </div>
+          <p class="section-bridge">
+            Dans le corpus du kit, D.I.C.E. est présenté comme un modèle générique de création d'un serious game pédagogique. On l'utilise ici comme méthode opérationnelle : ADDIE garde le cap pédagogique, D.I.C.E. accompagne le passage vers un prototype jouable, testable et améliorable.
+          </p>
+          <p class="source-note">Sources internes : lexique de la ludification pédagogique ; atelier Trivial Pursuit. Repères de conception complémentaires : Alvarez, Djaouti, Marne, Heidmann.</p>
+          <div class="dice-steps">
+            <article><strong>Définir</strong><span>Le besoin, le public, les objectifs pédagogiques, les contenus sérieux, les contraintes et les critères de réussite.</span></article>
+            <article><strong>Imaginer</strong><span>L'objectif ludique, le type de jeu, les mécaniques, les règles, le scénario, les feedbacks et les traces.</span></article>
+            <article><strong>Créer</strong><span>Un prototype jouable : supports, cartes, plateau, consignes, matériel, conditions de victoire et règles d'animation.</span></article>
+            <article><strong>Évaluer</strong><span>La jouabilité, l'engagement, les apprentissages, les blocages, les traces produites et les itérations nécessaires.</span></article>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">D.I.C.E. pas à pas</p>
+              <h2>Questions, livrables et points de vigilance</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Utiliser D.I.C.E." data-help-body="Chaque étape doit produire quelque chose de concret. On peut revenir en arrière : un test peut obliger à redéfinir un objectif, simplifier une règle ou refaire un support.">?</button>
+          </div>
+          <div class="method-step-grid">
+            <article class="method-step">
+              <span class="type">Étape 1</span>
+              <h3>Définir</h3>
+              <p>On établit le contenu sérieux avant de parler mécanique : problème pédagogique, public, objectifs, contraintes, savoirs visés et critères d'évaluation.</p>
+              <ul>
+                <li>Quel besoin justifie le recours au jeu ?</li>
+                <li>Que devront savoir faire les apprenants ?</li>
+                <li>Quelles contraintes de temps, lieu, matériel, groupe ?</li>
+              </ul>
+              <p><strong>Livrable :</strong> fiche de cadrage et objectifs pédagogiques formulés.</p>
+              <p><strong>Vigilance :</strong> ne pas commencer par un jeu préféré.</p>
+            </article>
+            <article class="method-step">
+              <span class="type">Étape 2</span>
+              <h3>Imaginer</h3>
+              <p>On transforme les apprentissages en actions de joueur, puis on choisit ou adapte des mécaniques capables de provoquer ces actions.</p>
+              <ul>
+                <li>Quel objectif ludique rend l'activité engageante ?</li>
+                <li>Quelles règles obligent à mobiliser les apprentissages ?</li>
+                <li>Quels feedbacks aident à comprendre et progresser ?</li>
+              </ul>
+              <p><strong>Livrable :</strong> matrice objectifs-mécaniques-feedbacks.</p>
+              <p><strong>Vigilance :</strong> éviter les mécaniques décoratives.</p>
+            </article>
+            <article class="method-step">
+              <span class="type">Étape 3</span>
+              <h3>Créer</h3>
+              <p>On fabrique une première version assez complète pour être jouée, mais assez légère pour être corrigée rapidement.</p>
+              <ul>
+                <li>Quels supports sont nécessaires pour tester la boucle principale ?</li>
+                <li>Les règles sont-elles lisibles sans surcharge ?</li>
+                <li>Le matériel permet-il d'observer les apprentissages ?</li>
+              </ul>
+              <p><strong>Livrable :</strong> prototype, consignes, matériel, cartes ou scénario.</p>
+              <p><strong>Vigilance :</strong> ne pas surproduire avant test.</p>
+            </article>
+            <article class="method-step">
+              <span class="type">Étape 4</span>
+              <h3>Évaluer</h3>
+              <p>On teste à la fois le jeu et l'apprentissage : compréhension des règles, engagement, erreurs, feedbacks, traces, débriefing et résultats.</p>
+              <ul>
+                <li>Le jeu est-il jouable sans explication excessive ?</li>
+                <li>Les joueurs apprennent-ils ce qui était visé ?</li>
+                <li>Que faut-il retirer, simplifier, reformuler ou renforcer ?</li>
+              </ul>
+              <p><strong>Livrable :</strong> retours d'observation, décisions d'itération et version suivante.</p>
+              <p><strong>Vigilance :</strong> ne pas confondre plaisir de jeu et apprentissage réel.</p>
             </article>
           </div>
         </section>
@@ -358,10 +464,41 @@
         <section class="surface">
           <div class="section-title with-help">
             <div>
-              <p class="eyebrow">Exemple guidé</p>
+              <p class="eyebrow">Synthèse visuelle</p>
+              <h2>Comment ADDIE et D.I.C.E. se répondent</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Lire le schéma" data-help-body="Le schéma se lit comme une correspondance : ADDIE cadre l'ingénierie pédagogique, D.I.C.E. traduit ce cadrage en étapes de conception du jeu et en livrables.">?</button>
+          </div>
+          <p class="section-bridge">
+            Le schéma devient utile une fois les deux niveaux distingués : ADDIE garde le regard sur le dispositif pédagogique global, tandis que D.I.C.E. guide la conception du jeu sérieux.
+          </p>
+          <figure class="media-frame method-map">
+            <img src="assets/addie-dice.jpg" alt="Schéma de correspondance entre ADDIE, DICE et les livrables d'un jeu sérieux pédagogique">
+            <figcaption>ADDIE cadre le design pédagogique global ; D.I.C.E. accompagne la création du jeu lui-même.</figcaption>
+          </figure>
+          <div class="table-wrap">
+            <table class="workshop-table">
+              <thead>
+                <tr><th>ADDIE</th><th>D.I.C.E.</th><th>Livrable dans le kit</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Analyse</td><td>Définir</td><td>Fiche de cadrage : besoin, public, objectifs, contraintes.</td></tr>
+                <tr><td>Design</td><td>Définir / Imaginer</td><td>Matrice d'alignement : objectifs, actions joueur, mécaniques, feedbacks, traces.</td></tr>
+                <tr><td>Développement</td><td>Créer</td><td>Prototype : règles, cartes, plateau, scénario, consignes et matériel.</td></tr>
+                <tr><td>Implémentation</td><td>Créer / Évaluer</td><td>Animation testée : déroulé, médiation, aides, débriefing.</td></tr>
+                <tr><td>Évaluation</td><td>Évaluer</td><td>Observations, retours, critères d'apprentissage, itérations.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="surface" id="trivial-case">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Cas fil rouge</p>
               <h2 id="exemples-title">Trivial Pursuit pédagogique</h2>
             </div>
-            <button class="help-button" type="button" data-help-title="Exemple autonome" data-help-body="Cet exemple est présenté comme cas autonome : cahier des charges, règles, matériel, alignement et critères de test.">?</button>
+            <button class="help-button" type="button" data-help-title="Cas fil rouge" data-help-body="Cet exemple illustre D.I.C.E. : définir le besoin, imaginer l'adaptation d'un jeu connu, créer les cartes et le plateau, puis tester la partie.">?</button>
           </div>
           <div class="example-layout">
             <div class="text-column">

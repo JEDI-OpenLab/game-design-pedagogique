@@ -26,6 +26,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-padding-top: 96px;
+}
+
 button,
 input,
 select,
@@ -191,10 +195,15 @@ main {
 
 .view {
   display: none;
+  scroll-margin-top: 96px;
 }
 
 .view.is-active {
   display: block;
+}
+
+.surface[id] {
+  scroll-margin-top: 96px;
 }
 
 .workspace {
@@ -401,6 +410,11 @@ h3 {
   gap: 12px;
 }
 
+.method-objectives {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 20px;
+}
+
 .objective-list article {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -464,26 +478,82 @@ h3 {
 }
 
 .method-map {
-  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+
+.method-flow,
+.dice-steps,
+.method-step-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.method-flow {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 18px;
+  margin-bottom: 16px;
 }
 
 .dice-steps {
-  display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  grid-column: 1 / -1;
+  margin-top: 18px;
 }
 
-.dice-steps article {
+.method-step-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.method-flow article,
+.dice-steps article,
+.method-step {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #f7fbfa;
   padding: 14px;
 }
 
-.dice-steps strong,
-.dice-steps span {
+.method-flow article {
+  position: relative;
+}
+
+.method-flow article:not(:last-child)::after {
+  content: ">";
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  color: var(--teal-dark);
+  font-weight: 900;
+}
+
+.method-flow span {
   display: block;
+  padding-right: 18px;
+}
+
+.dice-steps strong,
+.dice-steps span,
+.method-flow strong,
+.method-flow span {
+  display: block;
+}
+
+.method-step {
+  background: #fbfaf6;
+}
+
+.method-step ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.method-step li {
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.method-step p:last-child,
+.method-step li:last-child {
+  margin-bottom: 0;
 }
 
 .application-panel {
@@ -1030,6 +1100,10 @@ pre {
 }
 
 @media (max-width: 900px) {
+  html {
+    scroll-padding-top: 230px;
+  }
+
   html,
   body,
   main,
@@ -1054,6 +1128,8 @@ pre {
   .resource-controls,
   .resource-grid,
   .principle-grid,
+  .method-flow,
+  .method-step-grid,
   .concept-grid,
   .module-grid,
   .kit-grid,
@@ -1103,6 +1179,15 @@ pre {
     max-width: 330px;
   }
 
+  .view,
+  .surface[id] {
+    scroll-margin-top: 230px;
+  }
+
+  .method-flow article:not(:last-child)::after {
+    display: none;
+  }
+
   h1 {
     font-size: 1.42rem;
     line-height: 1.15;
@@ -1114,8 +1199,17 @@ pre {
 }
 
 @media (max-width: 520px) {
+  html {
+    scroll-padding-top: 300px;
+  }
+
   main {
     padding: 14px 12px;
+  }
+
+  .view,
+  .surface[id] {
+    scroll-margin-top: 300px;
   }
 
   .panel,
