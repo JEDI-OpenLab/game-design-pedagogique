@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Design Pédagogique</title>
+    <link rel="icon" href="assets/favicon-64.png">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="#presentation" data-jump="presentation" aria-label="Game Design Pédagogique">
+        <img src="assets/jedi-openlab-logo-small.png" alt="">
+        <span>
+          <strong>Game Design Pédagogique</strong>
+          <small>JEDI-OpenLab</small>
+        </span>
+      </a>
+      <nav class="tabs" aria-label="Sections">
+        <button class="tab is-active" type="button" data-tab="presentation">Présentation</button>
+        <button class="tab" type="button" data-tab="concevoir">Concevoir</button>
+        <button class="tab" type="button" data-tab="studio">Studio</button>
+        <button class="tab" type="button" data-tab="ressources">Ressources</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="presentation" class="view is-active" aria-labelledby="presentation-title">
+        <section class="construction-notice" aria-label="Information éditoriale">
+          <div>
+            <p class="eyebrow">Site en construction</p>
+            <p>
+              Cette webapp est une version de travail. Les contenus issus des ressources sources, de la veille et des documents internes sont progressivement réécrits pour former une ressource autonome, lisible hors de son contexte de production.
+            </p>
+          </div>
+          <button class="help-button" type="button" data-help-title="Version de travail" data-help-body="Le site est utilisable dans le navigateur, mais son édition reste en cours : certaines rubriques vont encore être consolidées, sourcées et harmonisées.">?</button>
+        </section>
+
+        <section class="surface hero-surface">
+          <div class="hero-grid">
+            <div>
+              <p class="eyebrow">Ressource ouverte</p>
+              <h1 id="presentation-title">Kit pédagogique du jeu sérieux</h1>
+              <p class="lead">
+                Une ressource autonome pour comprendre ce qu'est un jeu sérieux pédagogique, lire les repères issus de la littérature, puis passer à la conception et aux outils de prototypage.
+                <button class="help-button" type="button" data-help-title="Pourquoi commencer ici ?" data-help-body="Cette première partie présente le jeu sérieux avant de parler méthode. Elle rassemble définition, histoire, typologie, vigilance et état de l'art.">?</button>
+              </p>
+              <div class="action-row">
+                <button class="primary-action" type="button" data-jump="concevoir">Passer à la conception</button>
+                <button class="secondary-action" type="button" data-jump="studio">Ouvrir le studio</button>
+                <button class="secondary-action" type="button" data-jump="ressources">Explorer les ressources</button>
+              </div>
+            </div>
+            <aside class="definition-box">
+              <div class="row-heading">
+                <p class="eyebrow">Définition courte</p>
+                <button class="help-button" type="button" data-help-title="Définition courte" data-help-body="Cette formulation sert de point d'entrée. Les sections suivantes détaillent ensuite les dimensions sérieuse, ludique, pédagogique et méthodologique.">?</button>
+              </div>
+              <p>
+                Un jeu sérieux pédagogique est une activité de jeu dont la finalité est de générer des apprentissages. Il associe une dimension ludique, faite de règles, défis, choix et feedbacks, et une dimension sérieuse, faite d'objectifs pédagogiques explicites.
+              </p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Présentation</p>
+              <h2>Un peu d'histoire</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Pourquoi cette histoire ?" data-help-body="L'histoire rappelle que le serious game pédagogique ne commence pas avec le numérique : les jeux vidéo et objets connectés prolongent une tradition plus ancienne d'apprentissage par le jeu.">?</button>
+          </div>
+          <div class="story-grid">
+            <div class="text-column">
+              <p>
+                L'histoire du serious game en pédagogie s'inscrit dans une tradition ancienne d'apprentissage par le jeu. En France, dès le 16e siècle, des supports comme le jeu de l'oie montrent déjà comment une forme ludique peut servir à enseigner des notions historiques, géographiques ou culturelles.
+              </p>
+              <p>
+                L'émergence contemporaine du serious game coïncide ensuite avec la reconnaissance du potentiel éducatif des jeux vidéo. Dans les années 1970, les premiers jeux éducatifs cherchent à apporter davantage d'interactivité, de manipulation et de dynamisme aux situations d'apprentissage.
+              </p>
+              <p>
+                La période récente ajoute une dimension nouvelle : jeux vidéo, robotique, drones, objets connectés et interfaces numériques permettent de concevoir des expériences pédagogiques plus interactives, plus situées, parfois plus immersives.
+              </p>
+            </div>
+            <aside class="timeline-panel">
+              <ol>
+                <li><strong>16e siècle</strong><span>Jeux imprimés et jeux de parcours au service de savoirs scolaires ou culturels.</span></li>
+                <li><strong>Années 1970</strong><span>Premières formes modernes de jeux éducatifs et de serious games.</span></li>
+                <li><strong>Depuis les années 2000</strong><span>Jeux vidéo, simulation, robotique et supports hybrides renouvellent les usages pédagogiques.</span></li>
+              </ol>
+            </aside>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Définition approfondie</p>
+              <h2>Ce qu'est un serious game pédagogique</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Définition approfondie" data-help-body="Cette définition met ensemble les objectifs pédagogiques, les objectifs ludiques, l'apprentissage actif, le constructionnisme, l'engagement et le flow.">?</button>
+          </div>
+          <div class="definition-stack">
+            <p>
+              Un serious game pédagogique est une stratégie d'enseignement qui fusionne des éléments de jeu, ou objectifs ludiques, avec des objectifs pédagogiques pour créer une expérience d'apprentissage immersive et engageante.
+            </p>
+            <p>
+              C'est une activité d'apprentissage actif qui vise à générer des connaissances et des compétences en utilisant des mécanismes ludiques. Elle mobilise l'apprentissage par le jeu, le constructionnisme et l'engagement pour soutenir une expérience motivante.
+            </p>
+            <p>
+              Un serious game pédagogique met en œuvre des objectifs spécifiques et connus des participants. Il permet de réinvestir des connaissances et compétences dans un contexte ludique, tout en visant un engagement durable et, si possible, une expérience de flow où l'attention reste focalisée sur la tâche d'apprentissage.
+            </p>
+            <p>
+              Le terme « serious » renvoie donc à une finalité utilitaire : atteindre des objectifs d'apprentissage précis. La dimension ludique n'est pas un décor ajouté après coup, mais un moyen de produire une expérience pédagogique plus active, interactive et signifiante.
+            </p>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Pourquoi ludifier ?</p>
+              <h2>Engager, motiver, mais seulement si le jeu est justifié</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Pourquoi ludifier ?" data-help-body="La ludification n'est utile que si elle répond à un problème pédagogique : engagement, feedback, entraînement, coopération, mémorisation, transfert ou mise en situation.">?</button>
+          </div>
+          <div class="vigilance-grid">
+            <article>
+              <h3>Ce que la ludification peut apporter</h3>
+              <ul>
+                <li>engager et motiver les apprenant·e·s ;</li>
+                <li>rendre la progression visible ;</li>
+                <li>favoriser l'essai, l'erreur et le feedback ;</li>
+                <li>faire coopérer ou débattre autour d'une situation ;</li>
+                <li>réinvestir des connaissances dans un contexte d'action.</li>
+              </ul>
+            </article>
+            <article class="warning-panel">
+              <h3>Faiblesses ludiques et pédagogiques</h3>
+              <p>
+                Les travaux de M. Lavigne, enseignant-chercheur spécialiste de la ludopédagogie à l'Université de Toulouse, rappellent que l'efficacité des serious games prête à suspicion lorsque la continuité entre jeu et apprentissage est rompue.
+              </p>
+              <p>
+                Si les participants perçoivent les aspects ludiques comme un frein à l'apprentissage, ou les aspects sérieux comme un frein au jeu, l'expérience se dégrade. L'utilisation du jeu doit donc être parfaitement justifiée d'un point de vue pédagogique.
+              </p>
+              <button class="secondary-action inline-action" type="button" data-open-term="Faiblesses ludiques et pédagogiques">Lire la fiche du lexique</button>
+            </article>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Notions clés</p>
+              <h2>À ne pas confondre</h2>
+              <span class="section-hint">Touchez ou cliquez une carte pour ouvrir la définition complète.</span>
+            </div>
+            <button class="help-button" type="button" data-help-title="Notions clés" data-help-body="Cliquez sur une notion pour ouvrir sa définition complète issue du lexique importé. Le lexique complet reste disponible dans Ressources.">?</button>
+          </div>
+          <div id="home-concepts" class="concept-grid"></div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Mini-cours</p>
+              <h2 id="comprendre-title">Bases définitionnelles</h2>
+              <span class="section-hint">Chaque carte ouvre une fiche explicative intégrée.</span>
+            </div>
+            <button class="help-button" type="button" data-help-title="Lire cette section" data-help-body="Cette section est pensée comme un mini-cours intégré. Les cartes ouvrent des contenus complets, sans quitter la webapp.">?</button>
+          </div>
+          <div id="definition-modules" class="module-grid"></div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Lexique prioritaire</p>
+              <h2>Les entrées importantes du corpus</h2>
+              <span class="section-hint">Touchez ou cliquez une entrée pour lire la définition et ses notes.</span>
+            </div>
+            <button class="help-button" type="button" data-help-title="Lexique prioritaire" data-help-body="Le CSV contient davantage que ces notions. Ici, les termes fondamentaux sont remontés pour éviter qu'ils soient noyés dans les mécaniques de gamification.">?</button>
+          </div>
+          <div id="priority-lexicon" class="resource-grid"></div>
+        </section>
+
+        <section class="surface" id="litterature" aria-labelledby="litterature-title">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Littérature</p>
+              <h2 id="litterature-title">État de l'art synthétique</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="État de l'art" data-help-body="Cette synthèse transforme le corpus de veille en repères de conception. Elle ne remplace pas la lecture des sources : elle explicite les points utiles pour concevoir la webapp et les futurs outils.">?</button>
+          </div>
+          <p class="lead">
+            Le corpus converge vers une idée simple : un jeu sérieux pédagogique ne vaut pas par son thème ludique, mais par l'articulation entre objectif d'apprentissage, mécanique de jeu, accompagnement, feedback, débriefing et évaluation.
+          </p>
+          <div class="state-grid">
+            <article>
+              <h3>Définir le périmètre</h3>
+              <p>La définition minimale présente le serious game comme un jeu dont la finalité première dépasse le divertissement. Pour la pédagogie, cette finalité doit être traduite en objectifs explicites, actions observables et traces d'apprentissage.</p>
+              <p class="source-note">Sources : Michael & Chen cités par Canopé ; Djaouti ; Alvarez.</p>
+            </article>
+            <article>
+              <h3>Articuler jeu et apprentissage</h3>
+              <p>Les travaux d'Alvarez et Marne insistent sur la difficulté de faire tenir ensemble motivation ludique et apprentissage. Le jeu doit intégrer le contenu sérieux dans ses règles, ses feedbacks et ses décisions, plutôt que juxtaposer une couche ludique et une couche pédagogique.</p>
+              <p class="source-note">Sources : Alvarez 2007/2019 ; Marne 2014.</p>
+            </article>
+            <article>
+              <h3>Choisir une stratégie</h3>
+              <p>Djaouti distingue trois approches utiles : utiliser un jeu existant, créer un jeu sur mesure, ou faire créer un jeu par les apprenants. Cette dernière piste rejoint le constructionnisme : la production du jeu devient elle-même activité d'apprentissage.</p>
+              <p class="source-note">Sources : Djaouti 2016 ; Canopé 2016.</p>
+            </article>
+            <article>
+              <h3>Concevoir avec méthode</h3>
+              <p>Les modèles de conception rappellent que le game design pédagogique est un travail multi-expertise. Ils questionnent objectifs, simulation du domaine, interactions, progression, feedbacks, conditions d'usage et rôle de l'accompagnement.</p>
+              <p class="source-note">Sources : Djaouti 2011 cité par Marne ; Marne 2014 ; Heidmann 2015.</p>
+            </article>
+            <article>
+              <h3>Accompagner et débriefer</h3>
+              <p>Le jeu n'est pas un substitut automatique à l'enseignement. Les sources soulignent le rôle central de la médiation humaine, de l'introduction de l'activité, de l'observation et du débriefing pour transformer l'expérience de jeu en apprentissage explicite.</p>
+              <p class="source-note">Sources : Canopé 2016 ; Alvarez 2019 ; Heidmann 2015.</p>
+            </article>
+            <article>
+              <h3>Rester critique</h3>
+              <p>Lavigne montre que les serious games peuvent être perçus comme de mauvais jeux ou de mauvais supports pédagogiques lorsque les tensions entre plaisir, efficacité, liberté et objectifs évaluables ne sont pas résolues. Le jeu doit donc être justifié, testé et évalué.</p>
+              <p class="source-note">Source : Lavigne 2016.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Sources consultées</p>
+              <h2>Corpus de veille et documentation</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Sources" data-help-body="Les sources sont citées comme références bibliographiques locales. Les PDF et documents tiers ne sont pas republiés dans la webapp.">?</button>
+          </div>
+          <div class="source-list">
+            <article><strong>Alvarez, J. (2007)</strong><span>Du jeu vidéo au Serious Game : approches culturelle, pragmatique et formelle.</span></article>
+            <article><strong>Alvarez, J. (2019)</strong><span>Design des dispositifs et expériences de jeu sérieux.</span></article>
+            <article><strong>Alvarez, J., Djaouti, D. & Rampnoux, O. (2012)</strong><span>Introduction au Serious Game.</span></article>
+            <article><strong>Alvarez, J., Djaouti, D. & Rampnoux, O. (2016)</strong><span>Apprendre avec les serious games ? Réseau Canopé.</span></article>
+            <article><strong>Alvarez, J. & Michaud, L. (2008)</strong><span>Serious games: Advergaming, edugaming, training and more. IDATE.</span></article>
+            <article><strong>Djaouti, D. (2016)</strong><span>Serious Games pour l'éducation : utiliser, créer, faire créer ? Tréma.</span></article>
+            <article><strong>Marne, B. (2014)</strong><span>Modèles et outils pour la conception de jeux sérieux : une approche meta-design.</span></article>
+            <article><strong>Lavigne, M. (2016)</strong><span>Les faiblesses ludiques et pédagogiques des serious games.</span></article>
+            <article><strong>Heidmann, O. (2015)</strong><span>How to create a serious game?</span></article>
+            <article><strong>Atelier-EDU / PortailEduc</strong><span>La pédagogie du jeu, dossier de veille et de curation.</span></article>
+          </div>
+        </section>
+      </section>
+
+      <section id="concevoir" class="view" aria-labelledby="concevoir-title">
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Méthode de conception</p>
+              <h1 id="concevoir-title">Comment concevoir un jeu sérieux</h1>
+            </div>
+            <button class="help-button" type="button" data-help-title="Concevoir avec D.I.C.E." data-help-body="Cette partie commence après la présentation du jeu sérieux. Elle explique comment passer d'un besoin pédagogique à un prototype jouable, testable et améliorable.">?</button>
+          </div>
+          <p class="lead">
+            Concevoir un jeu sérieux, ce n'est pas choisir un habillage ludique. C'est transformer un objectif d'apprentissage en actions de joueur, règles, feedbacks, traces et débriefing. Le modèle D.I.C.E. sert ici de colonne vertébrale.
+          </p>
+          <div class="method-layout">
+            <figure class="media-frame method-map">
+              <img src="assets/addie-dice.jpg" alt="Schéma de correspondance entre ADDIE, DICE et les livrables d'un jeu sérieux pédagogique">
+              <figcaption>ADDIE cadre le design pédagogique global ; D.I.C.E. accompagne la création du jeu lui-même.</figcaption>
+            </figure>
+            <div class="dice-steps">
+              <article><strong>Définir</strong><span>Besoins, contexte, public, contraintes, objectifs pédagogiques et contenus sérieux.</span></article>
+              <article><strong>Imaginer</strong><span>Principe de jeu, mécaniques, règles, scénario, énigmes, cartes ou situations.</span></article>
+              <article><strong>Créer</strong><span>Prototype jouable, supports, consignes, gabarits, matériel et conditions de victoire.</span></article>
+              <article><strong>Évaluer</strong><span>Tests, observation, retours, traces d'apprentissage, débriefing et itérations.</span></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Invariants de conception</p>
+              <h2>Ce qu'il faut poser avant de prototyper</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Invariants" data-help-body="Ces cartes résument les points qui doivent rester visibles pendant toute la conception : double objectif, alignement, feedback, trace et boucle d'apprentissage.">?</button>
+          </div>
+          <div class="principle-grid">
+            <article>
+              <h3>Deux dimensions</h3>
+              <p>La dimension sérieuse correspond à la finalité utile : apprendre, s'entraîner, sensibiliser, décider. La dimension ludique correspond au système de jeu : but, règles, défi, progression, interactions.</p>
+            </article>
+            <article>
+              <h3>Deux objectifs</h3>
+              <p>L'objectif pédagogique dit ce que l'apprenant doit savoir ou savoir-faire. L'objectif ludique dit ce que le joueur cherche à accomplir. Un bon design les fait travailler ensemble.</p>
+            </article>
+            <article>
+              <h3>Un alignement</h3>
+              <p>Les mécaniques, supports, règles, feedbacks et évaluations doivent soutenir les apprentissages visés. Un élément ludique non aligné doit être simplifié, transformé ou retiré.</p>
+            </article>
+            <article>
+              <h3>Une boucle</h3>
+              <p>Le joueur rencontre une situation, agit, reçoit un feedback, puis ajuste son action. Cette boucle d'essai-feedback-remédiation est le cœur pédagogique du jeu.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Exemple guidé</p>
+              <h2 id="exemples-title">Trivial Pursuit pédagogique</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Exemple autonome" data-help-body="Cet exemple est présenté comme cas autonome : cahier des charges, règles, matériel, alignement et critères de test.">?</button>
+          </div>
+          <div class="example-layout">
+            <div class="text-column">
+              <p>
+                Le Trivial Pursuit pédagogique est un exemple de dégamification : on part d'un jeu connu, puis on simplifie et transforme ses règles pour servir des objectifs d'apprentissage clairement formulés.
+              </p>
+              <p>
+                L'intérêt de cet exemple est double : le jeu est immédiatement compréhensible par les participants, et la conception des cartes oblige à relier connaissance, compréhension, application, réponse attendue et feedback.
+              </p>
+              <div class="action-row">
+                <button class="secondary-action" type="button" data-open-library="exemple-trivial">Lire la fiche intégrée</button>
+                <button class="secondary-action" type="button" data-open-library="gabarit-cartes">Voir le gabarit de cartes</button>
+              </div>
+            </div>
+            <figure class="media-frame">
+              <img src="assets/trivial-pursuit-plateau-couleurs.png" alt="Plateau de Trivial Pursuit pédagogique avec cases colorées">
+              <figcaption>Plateau réutilisable pour prototyper une variante pédagogique.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Cahier des charges remanié</p>
+              <h2>Contraintes de conception</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Cahier des charges" data-help-body="Le cahier des charges transforme une idée de jeu en spécifications réutilisables : objectifs, règles, matériel, critères d'alignement et modalités de test.">?</button>
+          </div>
+          <div class="spec-grid">
+            <article><h3>Objectif pédagogique</h3><p>Faire travailler les notions fondamentales du serious game : définition, serious gaming, dégamification, objectifs ludiques/pédagogiques, instructionnisme, constructionnisme et méthode D.I.C.E.</p></article>
+            <article><h3>Objectif ludique</h3><p>Répondre correctement, garder la main, collecter les jalons, progresser vers le centre du plateau et réussir le sprint final.</p></article>
+            <article><h3>Structure des questions</h3><p>Cases standard : connaître. Cases jalons : comprendre et associer à des cas d'usage. Sprint final : appliquer les étapes ou principes de conception.</p></article>
+            <article><h3>Règles remaniées</h3><p>Pas de thèmes décoratifs, une case correspond à une question, chaque carte comporte question, réponse attendue et feedback. Les règles originales qui ralentissent ou parasitent l'apprentissage sont retirées.</p></article>
+            <article><h3>Matériel minimal</h3><p>Plateau, cartes questions, cartes règles, dé, pions, jalons, fiche animateur, grille d'observation et support de débriefing.</p></article>
+            <article><h3>Critères de test</h3><p>Partie de 30 minutes maximum, règles comprises sans surcharge, questions alignées, feedbacks exploitables, progression lisible et débriefing possible.</p></article>
+          </div>
+        </section>
+      </section>
+
+      <section id="studio" class="view" aria-labelledby="studio-title">
+        <section class="surface hero-surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Production</p>
+              <h1>Studio et outils du kit</h1>
+            </div>
+            <button class="help-button" type="button" data-help-title="Studio et outils" data-help-body="Cette partie sert à produire : fiche de cadrage, matrice d'alignement, cartes questions et supports exportables. Les données restent dans votre navigateur.">?</button>
+          </div>
+          <p class="lead">
+            Une fois les bases comprises et la méthode posée, le studio aide à formuler un projet, choisir une piste de jeu, aligner les mécaniques et fabriquer les premiers supports.
+          </p>
+          <div class="kit-grid">
+            <button class="tool-card" type="button" data-jump="studio">
+              <span class="type">Cadrage</span>
+              <strong>Fiche de conception</strong>
+              <span>Public, durée, objectif, contrainte et recommandation de type de jeu.</span>
+              <span class="card-cta">Ouvrir</span>
+            </button>
+            <button class="tool-card" type="button" data-jump="matrice">
+              <span class="type">Alignement</span>
+              <strong>Matrice</strong>
+              <span>Relier objectifs pédagogiques, actions joueur, mécaniques, feedbacks et traces.</span>
+              <span class="card-cta">Ouvrir</span>
+            </button>
+            <button class="tool-card" type="button" data-jump="cartes">
+              <span class="type">Production</span>
+              <strong>Cartes questions</strong>
+              <span>Créer des cartes avec niveau, réponse attendue et feedback.</span>
+              <span class="card-cta">Ouvrir</span>
+            </button>
+            <button class="tool-card" type="button" data-jump="ressources">
+              <span class="type">Corpus</span>
+              <strong>Lexique et exemples</strong>
+              <span>Interroger les notions, exemples de jeux et outils importés depuis les CSV.</span>
+              <span class="card-cta">Ouvrir</span>
+            </button>
+          </div>
+        </section>
+
+        <div class="workspace">
+          <section class="panel project-panel">
+            <div class="panel-heading with-help">
+              <div>
+                <p class="eyebrow">Conception</p>
+                <h1 id="studio-title">Studio de cadrage</h1>
+              </div>
+              <button class="help-button" type="button" data-help-title="Studio de cadrage" data-help-body="Remplissez ces champs pour produire une première fiche de conception. Le studio recommande un type de jeu et peut envoyer une ligne vers la matrice d'alignement.">?</button>
+            </div>
+
+            <form id="project-form" class="form-grid">
+              <label>
+                <span class="field-label">Titre <button class="help-button" type="button" data-help-title="Titre" data-help-body="Donnez un nom provisoire au prototype. Il pourra changer après les tests.">?</button></span>
+                <input id="project-title" name="title" type="text" value="Prototype de jeu pédagogique">
+              </label>
+              <label>
+                <span class="field-label">Public <button class="help-button" type="button" data-help-title="Public cible" data-help-body="Indiquez le public réel : niveau, expérience, autonomie, habitudes de jeu, contraintes de groupe.">?</button></span>
+                <input id="project-audience" name="audience" type="text" value="Enseignants et formateurs">
+              </label>
+              <label>
+                <span class="field-label">Durée <button class="help-button" type="button" data-help-title="Durée" data-help-body="La durée influence fortement le type de jeu. Un jeu court demande une règle immédiate ; une demi-journée permet la production et le test d'un prototype.">?</button></span>
+                <select id="project-duration" name="duration">
+                  <option>30 minutes</option>
+                  <option selected>1 à 2 heures</option>
+                  <option>Demi-journée</option>
+                  <option>Plusieurs séances</option>
+                </select>
+              </label>
+              <label>
+                <span class="field-label">Modalité <button class="help-button" type="button" data-help-title="Modalité" data-help-body="Présentiel, distanciel, hybride ou autoformation : ce choix modifie le rôle de l'animateur, les feedbacks et les traces disponibles.">?</button></span>
+                <select id="project-mode" name="mode">
+                  <option selected>Présentiel</option>
+                  <option>Distanciel</option>
+                  <option>Hybride</option>
+                  <option>Autoformation</option>
+                </select>
+              </label>
+              <label class="wide">
+                <span class="field-label">Objectif pédagogique principal <button class="help-button" type="button" data-help-title="Objectif pédagogique" data-help-body="Formulez ce que les apprenants seront capables de faire à l'issue de l'activité. Un objectif observable aide à choisir les mécaniques et l'évaluation.">?</button></span>
+                <textarea id="project-objective" name="objective">À l'issue de l'activité, les participants seront capables de concevoir un prototype aligné sur un objectif d'apprentissage.</textarea>
+              </label>
+              <label>
+                <span class="field-label">Niveau dominant <button class="help-button" type="button" data-help-title="Niveau dominant" data-help-body="Le niveau renvoie à l'opération attendue : connaître, comprendre, appliquer, analyser, évaluer ou créer. Il oriente le choix des mécaniques.">?</button></span>
+                <select id="project-level" name="level">
+                  <option>Connaître</option>
+                  <option>Comprendre</option>
+                  <option selected>Appliquer</option>
+                  <option>Analyser</option>
+                  <option>Évaluer</option>
+                  <option>Créer</option>
+                </select>
+              </label>
+              <label>
+                <span class="field-label">Contrainte forte <button class="help-button" type="button" data-help-title="Contrainte forte" data-help-body="Choisissez la contrainte qui risque le plus de peser sur la conception : temps, matériel, taille du groupe, autonomie ou évaluation.">?</button></span>
+                <select id="project-constraint" name="constraint">
+                  <option selected>Peu de matériel</option>
+                  <option>Temps court</option>
+                  <option>Grand groupe</option>
+                  <option>Autoformation</option>
+                  <option>Évaluation formelle</option>
+                </select>
+              </label>
+            </form>
+          </section>
+
+          <aside class="panel decision-panel">
+            <div class="panel-heading row-heading">
+              <div>
+                <p class="eyebrow">Recommandation</p>
+                <h2>Type de jeu</h2>
+              </div>
+              <div class="icon-row">
+                <button class="help-button" type="button" data-help-title="Recommandation" data-help-body="La recommandation n'est pas une décision automatique : elle sert à ouvrir une piste à partir du niveau, de la modalité et de la contrainte déclarés.">?</button>
+                <button class="icon-button" id="copy-brief" type="button" title="Copier la fiche">⧉</button>
+              </div>
+            </div>
+            <div id="recommendation" class="recommendation"></div>
+            <div class="action-row">
+              <button class="primary-action" id="add-reco-to-matrix" type="button">Ajouter à la matrice</button>
+              <button class="secondary-action" id="download-brief" type="button">Exporter Markdown</button>
+            </div>
+          </aside>
+        </div>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Checklist</p>
+              <h2>Avant prototypage</h2>
+            </div>
+            <button class="help-button" type="button" data-help-title="Checklist" data-help-body="Ces cases aident à vérifier que le prototype peut être testé sans partir trop vite dans la production graphique ou matérielle.">?</button>
+          </div>
+          <div id="checklist" class="checklist"></div>
+        </section>
+      </section>
+
+      <section id="matrice" class="view" aria-labelledby="matrice-title">
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Alignement</p>
+              <h1 id="matrice-title">Objectifs, mécaniques, feedbacks</h1>
+            </div>
+            <button class="help-button" type="button" data-help-title="Matrice d'alignement" data-help-body="Une ligne doit montrer comment un objectif pédagogique devient une action de joueur, soutenue par une mécanique, un feedback et une trace observable.">?</button>
+          </div>
+          <div class="matrix-toolbar">
+            <button class="primary-action" id="add-row" type="button">Ajouter une ligne</button>
+            <button class="secondary-action" id="copy-matrix" type="button">Copier Markdown</button>
+            <button class="secondary-action" id="clear-matrix" type="button">Vider</button>
+          </div>
+          <div class="table-wrap">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th>Objectif <button class="help-button mini" type="button" data-help-title="Objectif" data-help-body="Ce que les apprenants doivent savoir, comprendre ou être capables de faire.">?</button></th>
+                  <th>Action joueur <button class="help-button mini" type="button" data-help-title="Action joueur" data-help-body="Ce que les participants font concrètement dans le jeu pour mobiliser l'objectif.">?</button></th>
+                  <th>Mécanique <button class="help-button mini" type="button" data-help-title="Mécanique" data-help-body="Règle ou système ludique : choix, carte, énigme, coopération, progression, dé, collection, etc.">?</button></th>
+                  <th>Feedback <button class="help-button mini" type="button" data-help-title="Feedback" data-help-body="Ce que le jeu ou l'animateur renvoie après l'action : correction, conséquence, indice, remédiation.">?</button></th>
+                  <th>Trace <button class="help-button mini" type="button" data-help-title="Trace" data-help-body="Ce qui permet d'observer, débriefer ou évaluer : réponse, justification, production, chemin suivi, grille d'observation.">?</button></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="matrix-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section id="cartes" class="view" aria-labelledby="cartes-title">
+        <div class="workspace">
+          <section class="panel">
+            <div class="panel-heading with-help">
+              <div>
+                <p class="eyebrow">Production</p>
+                <h1 id="cartes-title">Cartes questions</h1>
+              </div>
+              <button class="help-button" type="button" data-help-title="Cartes questions" data-help-body="Les cartes servent à produire rapidement un jeu de questions ou une base de quiz. Le feedback est aussi important que la réponse.">?</button>
+            </div>
+            <form id="card-form" class="form-grid">
+              <label>
+                <span class="field-label">Catégorie <button class="help-button" type="button" data-help-title="Catégorie de carte" data-help-body="La catégorie peut être une notion, un thème, un niveau de cours ou une famille de compétences.">?</button></span>
+                <input id="card-category" type="text" value="Serious game">
+              </label>
+              <label>
+                <span class="field-label">Niveau <button class="help-button" type="button" data-help-title="Niveau de carte" data-help-body="Niveau 1 : connaître. Niveau 2 : comprendre. Niveau 3 : appliquer. Mélanger les niveaux rend le jeu plus progressif.">?</button></span>
+                <select id="card-level">
+                  <option>Niveau 1 - connaître</option>
+                  <option selected>Niveau 2 - comprendre</option>
+                  <option>Niveau 3 - appliquer</option>
+                </select>
+              </label>
+              <label class="wide">
+                <span class="field-label">Question <button class="help-button" type="button" data-help-title="Question" data-help-body="La question doit être claire, vérifiable et adaptée au niveau d'apprentissage visé.">?</button></span>
+                <textarea id="card-question">Quelle différence faites-vous entre serious game et dégamification ?</textarea>
+              </label>
+              <label class="wide">
+                <span class="field-label">Réponse attendue <button class="help-button" type="button" data-help-title="Réponse attendue" data-help-body="Écrivez ce qui permettra à un animateur ou à un pair de valider la réponse sans ambiguïté.">?</button></span>
+                <textarea id="card-answer">Un serious game est conçu ou adapté pour une finalité sérieuse ; la dégamification modifie un jeu existant en retirant ou transformant ce qui gêne l'objectif pédagogique.</textarea>
+              </label>
+              <label class="wide">
+                <span class="field-label">Feedback <button class="help-button" type="button" data-help-title="Feedback" data-help-body="Le feedback explique pourquoi la réponse est correcte, incomplète ou erronée. C'est lui qui transforme la carte en support d'apprentissage.">?</button></span>
+                <textarea id="card-feedback">La distinction porte sur le point de départ : création/adaptation d'un dispositif ludique d'un côté, transformation critique d'un jeu existant de l'autre.</textarea>
+              </label>
+            </form>
+            <div class="action-row">
+              <button class="primary-action" id="add-card" type="button">Ajouter la carte</button>
+              <button class="secondary-action" id="copy-cards" type="button">Copier Markdown</button>
+            </div>
+          </section>
+
+          <aside class="panel">
+            <div class="panel-heading row-heading">
+              <div>
+                <p class="eyebrow">Paquet</p>
+                <h2>Cartes créées</h2>
+              </div>
+              <span class="counter" id="card-count">0</span>
+            </div>
+            <div id="cards-list" class="cards-list"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="ressources" class="view" aria-labelledby="ressources-title">
+        <section class="surface hero-surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Kit documentaire</p>
+              <h1 id="ressources-title">Ressources, lexique et bibliothèque</h1>
+            </div>
+            <button class="help-button" type="button" data-help-title="Ressources du kit" data-help-body="Cette partie rassemble ce qui soutient le studio : lexique complet, exemples, outils, fiches intégrées, gabarits et sources éditorialisées.">?</button>
+          </div>
+          <p class="lead">
+            Le kit ne renvoie pas vers des fichiers bruts pour la lecture principale : les contenus essentiels sont intégrés dans la webapp, tandis que les fichiers Markdown restent des sources éditables du dépôt.
+          </p>
+          <div class="kit-grid">
+            <button class="tool-card" type="button" data-open-library="doc-jeu-serieux">
+              <span class="type">Doc</span>
+              <strong>Définition complète</strong>
+              <span>Relire les critères de pertinence d'un jeu sérieux pédagogique.</span>
+              <span class="card-cta">Lire</span>
+            </button>
+            <button class="tool-card" type="button" data-open-library="doc-etat-art">
+              <span class="type">Littérature</span>
+              <strong>État de l'art</strong>
+              <span>Accéder à la synthèse sourcée issue de la veille documentaire.</span>
+              <span class="card-cta">Lire</span>
+            </button>
+            <button class="tool-card" type="button" data-open-library="gabarit-fiche">
+              <span class="type">Gabarit</span>
+              <strong>Fiche de conception</strong>
+              <span>Copier une structure prête à adapter pour un nouveau prototype.</span>
+              <span class="card-cta">Ouvrir</span>
+            </button>
+            <button class="tool-card" type="button" data-jump="bibliotheque">
+              <span class="type">Bibliothèque</span>
+              <strong>Tout parcourir</strong>
+              <span>Consulter docs, scénarios, gabarits et exemples intégrés.</span>
+              <span class="card-cta">Ouvrir</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Corpus</p>
+              <h2>Lexique, exemples, outils</h2>
+              <span class="section-hint">Les résultats sont cliquables et ouvrent une fiche de lecture.</span>
+            </div>
+            <button class="help-button" type="button" data-help-title="Corpus" data-help-body="Cette section interroge les données importées depuis les CSV : lexique, exemples de jeux et boîte à outils. Cliquez sur une carte pour lire l'entrée complète.">?</button>
+          </div>
+          <div class="resource-controls">
+            <input id="resource-search" type="search" placeholder="Rechercher une notion, un exemple, une ressource">
+            <select id="resource-kind">
+              <option value="all">Tout</option>
+              <option value="lexique">Lexique</option>
+              <option value="exemples">Exemples</option>
+              <option value="outils">Outils</option>
+            </select>
+          </div>
+          <div id="resource-results" class="resource-grid"></div>
+        </section>
+      </section>
+
+      <section id="bibliotheque" class="view" aria-labelledby="bibliotheque-title">
+        <section class="surface">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Bibliothèque intégrée</p>
+              <h1 id="bibliotheque-title">Docs, exemples et gabarits</h1>
+              <span class="section-hint">Sélectionnez une carte pour afficher son contenu dans le lecteur intégré.</span>
+            </div>
+            <button class="help-button" type="button" data-help-title="Bibliothèque intégrée" data-help-body="Les fichiers Markdown existent toujours dans le dépôt comme sources, mais ici les contenus sont consultables directement dans la webapp. Les gabarits peuvent être copiés.">?</button>
+          </div>
+          <div class="library-controls">
+            <button class="filter-chip is-active" type="button" data-library-filter="all">Tout</button>
+            <button class="filter-chip" type="button" data-library-filter="doc">Docs</button>
+            <button class="filter-chip" type="button" data-library-filter="atelier">Scénarios</button>
+            <button class="filter-chip" type="button" data-library-filter="gabarit">Gabarits</button>
+            <button class="filter-chip" type="button" data-library-filter="exemple">Exemples</button>
+          </div>
+          <div id="library-list" class="library-grid"></div>
+          <article id="library-reader" class="library-reader" aria-live="polite"></article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer-shell">
+      <div class="footer-inner">
+        <div class="footer-branding">
+          <span class="footer-text">
+            <svg class="footer-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 2h6v2l-1.5 1.5v4.2l5.6 8.7A2.3 2.3 0 0 1 17.2 22H6.8a2.3 2.3 0 0 1-1.9-3.6l5.6-8.7V5.5L9 4V2Z"/>
+              <path d="M8.2 16h7.6"/>
+            </svg>
+            <span><strong>JEDI-OpenLab</strong> · Pédagogie ouverte, conçue avec soin.</span>
+          </span>
+          <span class="footer-credit">Travail collaboratif avec le Dr. Claisse.</span>
+        </div>
+        <span class="footer-version">Version éditoriale 2026-05-22.1</span>
+      </div>
+    </footer>
+
+    <div id="help-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="help-title">
+        <button class="modal-close" type="button" data-close-modal>×</button>
+        <p class="eyebrow">Aide contextuelle</p>
+        <h2 id="help-title"></h2>
+        <p id="help-body"></p>
+      </section>
+    </div>
+
+    <div id="resource-modal" class="modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-card wide-modal" role="dialog" aria-modal="true" aria-labelledby="resource-title">
+        <button class="modal-close" type="button" data-close-modal>×</button>
+        <p class="eyebrow" id="resource-type"></p>
+        <h2 id="resource-title"></h2>
+        <div id="resource-body" class="rich-text"></div>
+      </section>
+    </div>
+
+    <script src="assets/data.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>
