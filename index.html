@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Game Design Pédagogique</title>
     <link rel="icon" href="assets/favicon-64.png">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css?v=20260523-responsive-4">
   </head>
   <body>
     <header class="app-header">
@@ -606,7 +606,7 @@
             </table>
           </div>
           <div class="action-row">
-            <button class="primary-action" type="button" data-jump="studio">Construire mon prototype</button>
+            <button class="primary-action" type="button" data-jump="studio">Ouvrir le Studio D.I.C.E.</button>
             <button class="secondary-action" type="button" data-jump="ressources">Consulter les gabarits</button>
           </div>
         </section>
@@ -616,146 +616,174 @@
         <section class="surface hero-surface">
           <div class="section-title with-help">
             <div>
-              <p class="eyebrow">Production</p>
-              <h1 id="studio-title">Studio et outils du kit</h1>
+              <p class="eyebrow">Studio D.I.C.E.</p>
+              <h1 id="studio-title">Fabrique de livrables D.I.C.E.</h1>
             </div>
-            <button class="help-button" type="button" data-help-title="Studio et outils" data-help-body="Cette partie sert à produire : fiche de cadrage, matrice d'alignement, cartes questions et supports exportables. Les données restent dans votre navigateur.">?</button>
+            <button class="help-button" type="button" data-help-title="Studio D.I.C.E." data-help-body="Le Studio suit la méthode D.I.C.E. : définir le cadre, imaginer le système de jeu, créer les supports, puis évaluer la jouabilité et les apprentissages. Il produit un dossier exportable en Markdown ou JSON. Les données restent dans votre navigateur.">?</button>
           </div>
           <p class="lead">
-            Une fois les bases comprises et la méthode posée, le studio aide à formuler un projet, choisir une piste de jeu, aligner les mécaniques et fabriquer les premiers supports.
+            Le Studio transforme la méthode en espace de travail. Vous y produisez un dossier de conception autonome : fiche de cadrage, matrice d'alignement, premiers supports jouables, module Trivial Pursuit si pertinent, puis protocole de test.
           </p>
           <div class="kit-grid">
-            <button class="tool-card" type="button" data-scroll-target="studio-cadrage">
-              <span class="type">Cadrage</span>
-              <strong>Fiche de conception</strong>
-              <span>Public, durée, objectif, contrainte et recommandation de type de jeu.</span>
+            <button class="tool-card" type="button" data-scroll-target="studio-definir">
+              <span class="type">Définir</span>
+              <strong>Cadrer le besoin</strong>
+              <span>Besoin, public, durée, objectifs pédagogiques, contenus, critères de réussite et contraintes.</span>
               <span class="card-cta">Ouvrir</span>
             </button>
-            <button class="tool-card" type="button" data-jump="matrice">
-              <span class="type">Alignement</span>
-              <strong>Matrice</strong>
-              <span>Relier objectifs pédagogiques, actions joueur, mécaniques, feedbacks et traces.</span>
+            <button class="tool-card" type="button" data-scroll-target="studio-imaginer">
+              <span class="type">Imaginer</span>
+              <strong>Aligner le jeu</strong>
+              <span>Stratégie de conception, objectif ludique, actions de joueur, mécaniques, feedbacks et traces.</span>
               <span class="card-cta">Ouvrir</span>
             </button>
-            <button class="tool-card" type="button" data-jump="cartes">
-              <span class="type">Production</span>
-              <strong>Cartes questions</strong>
-              <span>Créer des cartes avec niveau, réponse attendue et feedback.</span>
+            <button class="tool-card" type="button" data-scroll-target="studio-creer">
+              <span class="type">Créer</span>
+              <strong>Fabriquer les supports</strong>
+              <span>Cartes questions, réponses attendues, feedbacks et premiers éléments de prototype.</span>
               <span class="card-cta">Ouvrir</span>
             </button>
-            <button class="tool-card" type="button" data-jump="ressources">
-              <span class="type">Corpus</span>
-              <strong>Lexique et exemples</strong>
-              <span>Interroger les notions, exemples de jeux et outils importés depuis les CSV.</span>
+            <button class="tool-card" type="button" data-scroll-target="studio-evaluer">
+              <span class="type">Évaluer</span>
+              <strong>Tester et itérer</strong>
+              <span>Checklist, observations, critères de test, débriefing et décisions d'amélioration.</span>
               <span class="card-cta">Ouvrir</span>
             </button>
           </div>
         </section>
 
-        <div class="workspace">
-          <section class="panel project-panel" id="studio-cadrage">
-            <div class="panel-heading with-help">
-              <div>
-                <p class="eyebrow">Conception</p>
-                <h2 id="studio-cadrage-title">Studio de cadrage</h2>
-              </div>
-              <button class="help-button" type="button" data-help-title="Studio de cadrage" data-help-body="Remplissez ces champs pour produire une première fiche de conception. Le studio recommande un type de jeu et peut envoyer une ligne vers la matrice d'alignement.">?</button>
-            </div>
-
-            <form id="project-form" class="form-grid">
-              <label>
-                <span class="field-label">Titre <button class="help-button" type="button" data-help-title="Titre" data-help-body="Donnez un nom provisoire au prototype. Il pourra changer après les tests.">?</button></span>
-                <input id="project-title" name="title" type="text" value="Prototype de jeu pédagogique">
-              </label>
-              <label>
-                <span class="field-label">Public <button class="help-button" type="button" data-help-title="Public cible" data-help-body="Indiquez le public réel : niveau, expérience, autonomie, habitudes de jeu, contraintes de groupe.">?</button></span>
-                <input id="project-audience" name="audience" type="text" value="Enseignants et formateurs">
-              </label>
-              <label>
-                <span class="field-label">Durée <button class="help-button" type="button" data-help-title="Durée" data-help-body="La durée influence fortement le type de jeu. Un jeu court demande une règle immédiate ; une demi-journée permet la production et le test d'un prototype.">?</button></span>
-                <select id="project-duration" name="duration">
-                  <option>30 minutes</option>
-                  <option selected>1 à 2 heures</option>
-                  <option>Demi-journée</option>
-                  <option>Plusieurs séances</option>
-                </select>
-              </label>
-              <label>
-                <span class="field-label">Modalité <button class="help-button" type="button" data-help-title="Modalité" data-help-body="Présentiel, distanciel, hybride ou autoformation : ce choix modifie le rôle de l'animateur, les feedbacks et les traces disponibles.">?</button></span>
-                <select id="project-mode" name="mode">
-                  <option selected>Présentiel</option>
-                  <option>Distanciel</option>
-                  <option>Hybride</option>
-                  <option>Autoformation</option>
-                </select>
-              </label>
-              <label class="wide">
-                <span class="field-label">Objectif pédagogique principal <button class="help-button" type="button" data-help-title="Objectif pédagogique" data-help-body="Formulez ce que les apprenants seront capables de faire à l'issue de l'activité. Un objectif observable aide à choisir les mécaniques et l'évaluation.">?</button></span>
-                <textarea id="project-objective" name="objective">À l'issue de l'activité, les participants seront capables de concevoir un prototype aligné sur un objectif d'apprentissage.</textarea>
-              </label>
-              <label>
-                <span class="field-label">Niveau dominant <button class="help-button" type="button" data-help-title="Niveau dominant" data-help-body="Le niveau renvoie à l'opération attendue : connaître, comprendre, appliquer, analyser, évaluer ou créer. Il oriente le choix des mécaniques.">?</button></span>
-                <select id="project-level" name="level">
-                  <option>Connaître</option>
-                  <option>Comprendre</option>
-                  <option selected>Appliquer</option>
-                  <option>Analyser</option>
-                  <option>Évaluer</option>
-                  <option>Créer</option>
-                </select>
-              </label>
-              <label>
-                <span class="field-label">Contrainte forte <button class="help-button" type="button" data-help-title="Contrainte forte" data-help-body="Choisissez la contrainte qui risque le plus de peser sur la conception : temps, matériel, taille du groupe, autonomie ou évaluation.">?</button></span>
-                <select id="project-constraint" name="constraint">
-                  <option selected>Peu de matériel</option>
-                  <option>Temps court</option>
-                  <option>Grand groupe</option>
-                  <option>Autoformation</option>
-                  <option>Évaluation formelle</option>
-                </select>
-              </label>
-            </form>
-          </section>
-
-          <aside class="panel decision-panel">
-            <div class="panel-heading row-heading">
-              <div>
-                <p class="eyebrow">Recommandation</p>
-                <h2>Type de jeu</h2>
-              </div>
-              <div class="icon-row">
-                <button class="help-button" type="button" data-help-title="Recommandation" data-help-body="La recommandation n'est pas une décision automatique : elle sert à ouvrir une piste à partir du niveau, de la modalité et de la contrainte déclarés.">?</button>
-                <button class="icon-button" id="copy-brief" type="button" title="Copier la fiche">⧉</button>
-              </div>
-            </div>
-            <div id="recommendation" class="recommendation"></div>
-            <div class="action-row">
-              <button class="primary-action" id="add-reco-to-matrix" type="button">Ajouter à la matrice</button>
-              <button class="secondary-action" id="download-brief" type="button">Exporter Markdown</button>
-            </div>
-          </aside>
-        </div>
-
-        <section class="surface">
+        <section class="surface" id="studio-definir">
           <div class="section-title with-help">
             <div>
-              <p class="eyebrow">Checklist</p>
-              <h2>Avant prototypage</h2>
+              <p class="eyebrow">Définir</p>
+              <h2>Fiche de cadrage du jeu sérieux</h2>
             </div>
-            <button class="help-button" type="button" data-help-title="Checklist" data-help-body="Ces cases aident à vérifier que le prototype peut être testé sans partir trop vite dans la production graphique ou matérielle.">?</button>
+            <button class="help-button" type="button" data-help-title="Définir" data-help-body="Cette étape sert à poser le contenu sérieux : besoin, public, objectifs pédagogiques, contraintes et critères de réussite. Elle évite de commencer par une idée de jeu non alignée.">?</button>
           </div>
-          <div id="checklist" class="checklist"></div>
-        </section>
-      </section>
+          <p class="section-bridge">
+            Remplissez cette fiche avant de choisir les mécaniques. Elle devient la base du dossier D.I.C.E. et peut être exportée comme document de travail.
+          </p>
 
-      <section id="matrice" class="view" aria-labelledby="matrice-title">
-        <section class="surface">
+          <form id="project-form" class="form-grid">
+            <label>
+              <span class="field-label">Titre <button class="help-button" type="button" data-help-title="Titre" data-help-body="Donnez un nom provisoire au prototype. Il pourra changer après les tests.">?</button></span>
+              <input id="project-title" name="title" type="text" value="Prototype de jeu pédagogique">
+            </label>
+            <label>
+              <span class="field-label">Public <button class="help-button" type="button" data-help-title="Public cible" data-help-body="Indiquez le public réel : niveau, expérience, autonomie, habitudes de jeu, contraintes de groupe.">?</button></span>
+              <input id="project-audience" name="audience" type="text" value="Enseignants et formateurs">
+            </label>
+            <label>
+              <span class="field-label">Durée <button class="help-button" type="button" data-help-title="Durée" data-help-body="La durée influence fortement la forme du dispositif. Un jeu court demande une règle immédiate ; une demi-journée permet la production et le test d'un prototype.">?</button></span>
+              <select id="project-duration" name="duration">
+                <option>30 minutes</option>
+                <option selected>1 à 2 heures</option>
+                <option>Demi-journée</option>
+                <option>Plusieurs séances</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Modalité <button class="help-button" type="button" data-help-title="Modalité" data-help-body="Présentiel, distanciel, hybride ou autoformation : ce choix modifie le rôle de l'animateur, les feedbacks et les traces disponibles.">?</button></span>
+              <select id="project-mode" name="mode">
+                <option selected>Présentiel</option>
+                <option>Distanciel</option>
+                <option>Hybride</option>
+                <option>Autoformation</option>
+              </select>
+            </label>
+            <label class="wide">
+              <span class="field-label">Besoin pédagogique <button class="help-button" type="button" data-help-title="Besoin pédagogique" data-help-body="Expliquez le problème que le jeu doit aider à traiter : engagement, mémorisation, transfert, coopération, changement de posture, entraînement, etc.">?</button></span>
+              <textarea id="project-need" name="need">Favoriser l'engagement des apprenants par le recours au jeu d'apprentissage, sans perdre l'exigence pédagogique.</textarea>
+            </label>
+            <label class="wide">
+              <span class="field-label">Objectif pédagogique principal <button class="help-button" type="button" data-help-title="Objectif pédagogique" data-help-body="Formulez ce que les apprenants seront capables de faire à l'issue de l'activité. Un objectif observable aide à choisir les mécaniques et l'évaluation.">?</button></span>
+              <textarea id="project-objective" name="objective">À l'issue de l'activité, les participants seront capables de concevoir un prototype aligné sur un objectif d'apprentissage.</textarea>
+            </label>
+            <label>
+              <span class="field-label">Niveau dominant <button class="help-button" type="button" data-help-title="Niveau dominant" data-help-body="Le niveau renvoie à l'opération attendue : connaître, comprendre, appliquer, analyser, évaluer ou créer. Il oriente le choix des mécaniques.">?</button></span>
+              <select id="project-level" name="level">
+                <option>Connaître</option>
+                <option>Comprendre</option>
+                <option selected>Appliquer</option>
+                <option>Analyser</option>
+                <option>Évaluer</option>
+                <option>Créer</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Contrainte forte <button class="help-button" type="button" data-help-title="Contrainte forte" data-help-body="Choisissez la contrainte qui risque le plus de peser sur la conception : temps, matériel, taille du groupe, autonomie ou évaluation.">?</button></span>
+              <select id="project-constraint" name="constraint">
+                <option selected>Peu de matériel</option>
+                <option>Temps court</option>
+                <option>Grand groupe</option>
+                <option>Autoformation</option>
+                <option>Évaluation formelle</option>
+              </select>
+            </label>
+            <label class="wide">
+              <span class="field-label">Contenus ou notions à travailler <button class="help-button" type="button" data-help-title="Contenus" data-help-body="Listez les notions, gestes, concepts ou situations qui doivent apparaître dans le jeu. Cette liste évite de produire une mécanique séduisante mais hors sujet.">?</button></span>
+              <textarea id="project-content" name="content">Serious game, serious gaming, gamification, dégamification, objectif pédagogique, objectif ludique, feedback, débriefing.</textarea>
+            </label>
+            <label class="wide">
+              <span class="field-label">Critères de réussite <button class="help-button" type="button" data-help-title="Critères de réussite" data-help-body="Indiquez ce qui permettra de dire que l'activité a fonctionné : production attendue, réponses justifiées, transfert, observation, test, débriefing.">?</button></span>
+              <textarea id="project-success" name="success">Les participants savent distinguer les notions principales, justifier un choix de mécanique et produire une première version testable.</textarea>
+            </label>
+          </form>
+          <div class="action-row">
+            <button class="secondary-action" id="copy-brief" type="button">Copier le dossier</button>
+            <button class="secondary-action" id="download-brief" type="button">Exporter Markdown</button>
+            <button class="secondary-action" id="copy-json" type="button">Copier JSON</button>
+            <button class="secondary-action" id="download-json" type="button">Exporter JSON</button>
+            <button class="primary-action" type="button" data-scroll-target="studio-imaginer">Passer à Imaginer</button>
+          </div>
+        </section>
+
+        <section class="surface" id="studio-imaginer">
           <div class="section-title with-help">
             <div>
-              <p class="eyebrow">Alignement</p>
-              <h1 id="matrice-title">Objectifs, mécaniques, feedbacks</h1>
+              <p class="eyebrow">Imaginer</p>
+              <h2>Objectif ludique, mécaniques et alignement</h2>
             </div>
-            <button class="help-button" type="button" data-help-title="Matrice d'alignement" data-help-body="Une ligne doit montrer comment un objectif pédagogique devient une action de joueur, soutenue par une mécanique, un feedback et une trace observable.">?</button>
+            <button class="help-button" type="button" data-help-title="Imaginer" data-help-body="Cette étape transforme les objectifs pédagogiques en actions de joueur, règles, feedbacks et traces. Le Studio ne choisit pas le jeu à votre place : il aide à documenter une stratégie et à vérifier l'alignement.">?</button>
+          </div>
+          <p class="section-bridge">
+            Choisissez une stratégie de conception, puis vérifiez que chaque règle donne une raison d'agir et d'apprendre. La matrice sert de garde-fou : si une action ne produit ni feedback ni trace, elle est probablement décorative.
+          </p>
+          <form id="imagine-form" class="form-grid">
+            <label>
+              <span class="field-label">Stratégie de conception <button class="help-button" type="button" data-help-title="Stratégie de conception" data-help-body="Choisissez le point de départ du travail : adapter un jeu existant, utiliser un jeu tel quel, créer un jeu simple ou faire créer le jeu par les apprenants.">?</button></span>
+              <select id="project-strategy" name="strategy">
+                <option value="adaptation" selected>Adapter ou dégamifier un jeu existant</option>
+                <option value="seriousGaming">Utiliser un jeu existant tel quel</option>
+                <option value="custom">Créer un jeu simple sur mesure</option>
+                <option value="constructionist">Faire créer le jeu par les apprenants</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Objectif ludique <button class="help-button" type="button" data-help-title="Objectif ludique" data-help-body="Formulez ce que les joueurs cherchent à réussir dans le jeu : collecter, résoudre, coopérer, produire, survivre, convaincre, progresser, etc.">?</button></span>
+              <input id="project-ludic-objective" name="ludic-objective" type="text" value="Réussir une progression en répondant, justifiant et appliquant les notions.">
+            </label>
+          </form>
+          <div class="stage-layout">
+            <article class="stage-box">
+              <div class="row-heading">
+                <div>
+                  <p class="eyebrow">Dossier vivant</p>
+                  <h3>Sortie D.I.C.E.</h3>
+                </div>
+                <button class="help-button" type="button" data-help-title="Sortie D.I.C.E." data-help-body="Cet encart synthétise le dossier en cours : stratégie choisie, livrables à produire, vigilance et prochaine action utile. Il se met à jour avec le cadrage.">?</button>
+              </div>
+              <div id="recommendation" class="recommendation"></div>
+              <div class="action-row">
+                <button class="primary-action" id="add-reco-to-matrix" type="button">Préremplir une ligne</button>
+              </div>
+            </article>
+            <article class="stage-box">
+              <p class="eyebrow">Repère</p>
+              <h3>Objectif ludique</h3>
+              <p>L'objectif ludique doit donner envie d'agir : réussir une mission, résoudre une énigme, produire un prototype, collecter des preuves, coopérer ou progresser.</p>
+              <p><strong>Test rapide :</strong> peut-on gagner sans mobiliser l'objectif pédagogique ? Si oui, la mécanique doit être corrigée.</p>
+            </article>
           </div>
           <div class="matrix-toolbar">
             <button class="primary-action" id="add-row" type="button">Ajouter une ligne</button>
@@ -778,61 +806,140 @@
             </table>
           </div>
         </section>
-      </section>
 
-      <section id="cartes" class="view" aria-labelledby="cartes-title">
-        <div class="workspace">
-          <section class="panel">
-            <div class="panel-heading with-help">
-              <div>
-                <p class="eyebrow">Production</p>
-                <h1 id="cartes-title">Cartes questions</h1>
-              </div>
-              <button class="help-button" type="button" data-help-title="Cartes questions" data-help-body="Les cartes servent à produire rapidement un jeu de questions ou une base de quiz. Le feedback est aussi important que la réponse.">?</button>
+        <section class="surface" id="studio-creer">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Créer</p>
+              <h2>Produire les premiers supports jouables</h2>
             </div>
-            <form id="card-form" class="form-grid">
+            <button class="help-button" type="button" data-help-title="Créer" data-help-body="Cette étape produit une version assez complète pour être testée, mais assez légère pour être corrigée. Les cartes questions sont un premier support de prototype.">?</button>
+          </div>
+          <p class="section-bridge">
+            Commencez par les supports qui testent la boucle principale du jeu : question, choix, action, feedback, progression ou trace.
+          </p>
+          <div class="stage-layout">
+            <div>
+              <form id="card-form" class="form-grid">
+                <label>
+                  <span class="field-label">Catégorie <button class="help-button" type="button" data-help-title="Catégorie de carte" data-help-body="La catégorie peut être une notion, un thème, un niveau de cours ou une famille de compétences.">?</button></span>
+                  <input id="card-category" type="text" value="Serious game">
+                </label>
+                <label>
+                  <span class="field-label">Niveau <button class="help-button" type="button" data-help-title="Niveau de carte" data-help-body="Niveau 1 : connaître. Niveau 2 : comprendre. Niveau 3 : appliquer. Mélanger les niveaux rend le jeu plus progressif.">?</button></span>
+                  <select id="card-level">
+                    <option>Niveau 1 - connaître</option>
+                    <option selected>Niveau 2 - comprendre</option>
+                    <option>Niveau 3 - appliquer</option>
+                  </select>
+                </label>
+                <label class="wide">
+                  <span class="field-label">Question <button class="help-button" type="button" data-help-title="Question" data-help-body="La question doit être claire, vérifiable et adaptée au niveau d'apprentissage visé.">?</button></span>
+                  <textarea id="card-question">Quelle différence faites-vous entre serious game et dégamification ?</textarea>
+                </label>
+                <label class="wide">
+                  <span class="field-label">Réponse attendue <button class="help-button" type="button" data-help-title="Réponse attendue" data-help-body="Écrivez ce qui permettra à un animateur ou à un pair de valider la réponse sans ambiguïté.">?</button></span>
+                  <textarea id="card-answer">Un serious game est conçu ou adapté pour une finalité sérieuse ; la dégamification modifie un jeu existant en retirant ou transformant ce qui gêne l'objectif pédagogique.</textarea>
+                </label>
+                <label class="wide">
+                  <span class="field-label">Feedback <button class="help-button" type="button" data-help-title="Feedback" data-help-body="Le feedback explique pourquoi la réponse est correcte, incomplète ou erronée. C'est lui qui transforme la carte en support d'apprentissage.">?</button></span>
+                  <textarea id="card-feedback">La distinction porte sur le point de départ : création/adaptation d'un dispositif ludique d'un côté, transformation critique d'un jeu existant de l'autre.</textarea>
+                </label>
+              </form>
+              <div class="action-row">
+                <button class="primary-action" id="add-card" type="button">Ajouter la carte</button>
+                <button class="secondary-action" id="copy-cards" type="button">Copier Markdown</button>
+              </div>
+            </div>
+            <aside class="stage-box">
+              <div class="row-heading">
+                <div>
+                  <p class="eyebrow">Paquet</p>
+                  <h3>Cartes créées</h3>
+                </div>
+                <span class="counter" id="card-count">0</span>
+              </div>
+              <div id="cards-list" class="cards-list"></div>
+            </aside>
+          </div>
+          <div class="stage-box guided-module">
+            <div class="row-heading">
+              <div>
+                <p class="eyebrow">Module guidé</p>
+                <h3>Plateau progressif type Trivial Pursuit</h3>
+              </div>
+              <button class="help-button" type="button" data-help-title="Module Trivial Pursuit" data-help-body="Ce module sert à produire un cahier des charges de plateau progressif : questions de niveau 1, 2 et 3, condition de victoire, matériel, débriefing. Il est pertinent si l'objectif pédagogique repose sur mémoriser, comprendre puis appliquer.">?</button>
+            </div>
+            <p class="section-bridge">
+              Le Trivial Pursuit n'est pas une recommandation universelle : c'est le premier patron de production du kit. Utilisez-le lorsque la progression par niveaux de questions sert réellement les apprentissages visés.
+            </p>
+            <form id="trivial-module-form" class="form-grid">
               <label>
-                <span class="field-label">Catégorie <button class="help-button" type="button" data-help-title="Catégorie de carte" data-help-body="La catégorie peut être une notion, un thème, un niveau de cours ou une famille de compétences.">?</button></span>
-                <input id="card-category" type="text" value="Serious game">
+                <span class="field-label">Nom du module <button class="help-button" type="button" data-help-title="Nom du module" data-help-body="Nom de travail du plateau ou de l'adaptation.">?</button></span>
+                <input id="tp-title" type="text" value="Trivial Pursuit pédagogique">
               </label>
               <label>
-                <span class="field-label">Niveau <button class="help-button" type="button" data-help-title="Niveau de carte" data-help-body="Niveau 1 : connaître. Niveau 2 : comprendre. Niveau 3 : appliquer. Mélanger les niveaux rend le jeu plus progressif.">?</button></span>
-                <select id="card-level">
-                  <option>Niveau 1 - connaître</option>
-                  <option selected>Niveau 2 - comprendre</option>
-                  <option>Niveau 3 - appliquer</option>
-                </select>
+                <span class="field-label">Condition de victoire <button class="help-button" type="button" data-help-title="Condition de victoire" data-help-body="La condition de victoire doit rester un prétexte pour mobiliser les apprentissages : collecter, progresser, justifier, appliquer.">?</button></span>
+                <input id="tp-win-condition" type="text" value="Collecter les jalons puis réussir une question d'application finale.">
+              </label>
+              <label>
+                <span class="field-label">Cartes niveau 1 <button class="help-button" type="button" data-help-title="Niveau 1" data-help-body="Questions de restitution : définir, nommer, reconnaître.">?</button></span>
+                <input id="tp-level1-count" type="number" min="0" value="12">
+              </label>
+              <label>
+                <span class="field-label">Cartes niveau 2 <button class="help-button" type="button" data-help-title="Niveau 2" data-help-body="Questions de compréhension : distinguer, expliquer, associer, classer.">?</button></span>
+                <input id="tp-level2-count" type="number" min="0" value="8">
+              </label>
+              <label>
+                <span class="field-label">Cartes niveau 3 <button class="help-button" type="button" data-help-title="Niveau 3" data-help-body="Questions d'application : appliquer une méthode, scénariser, transformer un contenu, justifier un choix.">?</button></span>
+                <input id="tp-level3-count" type="number" min="0" value="4">
+              </label>
+              <label>
+                <span class="field-label">Matériel <button class="help-button" type="button" data-help-title="Matériel" data-help-body="Indiquez les supports nécessaires pour une version testable : plateau, cartes, pions, règle, grille d'observation, chronomètre.">?</button></span>
+                <input id="tp-material" type="text" value="Plateau, pions, cartes questions, règle courte, grille de débriefing.">
               </label>
               <label class="wide">
-                <span class="field-label">Question <button class="help-button" type="button" data-help-title="Question" data-help-body="La question doit être claire, vérifiable et adaptée au niveau d'apprentissage visé.">?</button></span>
-                <textarea id="card-question">Quelle différence faites-vous entre serious game et dégamification ?</textarea>
+                <span class="field-label">Tâche finale <button class="help-button" type="button" data-help-title="Tâche finale" data-help-body="La tâche finale doit obliger à réinvestir les notions, pas seulement à terminer le parcours.">?</button></span>
+                <textarea id="tp-final-task">Décrire et appliquer une étape D.I.C.E. à un cas de conception de jeu sérieux.</textarea>
               </label>
               <label class="wide">
-                <span class="field-label">Réponse attendue <button class="help-button" type="button" data-help-title="Réponse attendue" data-help-body="Écrivez ce qui permettra à un animateur ou à un pair de valider la réponse sans ambiguïté.">?</button></span>
-                <textarea id="card-answer">Un serious game est conçu ou adapté pour une finalité sérieuse ; la dégamification modifie un jeu existant en retirant ou transformant ce qui gêne l'objectif pédagogique.</textarea>
-              </label>
-              <label class="wide">
-                <span class="field-label">Feedback <button class="help-button" type="button" data-help-title="Feedback" data-help-body="Le feedback explique pourquoi la réponse est correcte, incomplète ou erronée. C'est lui qui transforme la carte en support d'apprentissage.">?</button></span>
-                <textarea id="card-feedback">La distinction porte sur le point de départ : création/adaptation d'un dispositif ludique d'un côté, transformation critique d'un jeu existant de l'autre.</textarea>
+                <span class="field-label">Débriefing prévu <button class="help-button" type="button" data-help-title="Débriefing" data-help-body="Notez les questions qui permettront de revenir sur les erreurs, les choix, les apprentissages et les transferts possibles.">?</button></span>
+                <textarea id="tp-debrief">Quelles notions ont été difficiles à distinguer ? Quelle mécanique a réellement soutenu l'apprentissage ? Que faut-il simplifier avant un nouveau test ?</textarea>
               </label>
             </form>
             <div class="action-row">
-              <button class="primary-action" id="add-card" type="button">Ajouter la carte</button>
-              <button class="secondary-action" id="copy-cards" type="button">Copier Markdown</button>
+              <button class="secondary-action" id="copy-trivial-spec" type="button">Copier le cahier des charges</button>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <aside class="panel">
-            <div class="panel-heading row-heading">
-              <div>
-                <p class="eyebrow">Paquet</p>
-                <h2>Cartes créées</h2>
-              </div>
-              <span class="counter" id="card-count">0</span>
+        <section class="surface" id="studio-evaluer">
+          <div class="section-title with-help">
+            <div>
+              <p class="eyebrow">Évaluer</p>
+              <h2>Tester la jouabilité et les apprentissages</h2>
             </div>
-            <div id="cards-list" class="cards-list"></div>
-          </aside>
-        </div>
+            <button class="help-button" type="button" data-help-title="Évaluer" data-help-body="Cette étape observe si le jeu est jouable, engageant et réellement aligné sur les apprentissages. L'évaluation produit des décisions d'itération.">?</button>
+          </div>
+          <p class="section-bridge">
+            Un prototype n'est pas validé parce qu'il est joli ou amusant : il est validé lorsqu'il permet d'observer des apprentissages, de donner des feedbacks et de débriefer.
+          </p>
+          <div id="checklist" class="checklist"></div>
+          <div class="table-wrap">
+            <table class="workshop-table">
+              <thead>
+                <tr><th>À observer</th><th>Question de test</th><th>Décision possible</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Règles</td><td>Les joueurs comprennent-ils quoi faire sans explication excessive ?</td><td>Simplifier, reformuler, montrer un exemple.</td></tr>
+                <tr><td>Engagement</td><td>Les joueurs ont-ils une raison claire de progresser, coopérer ou réussir ?</td><td>Renforcer l'objectif ludique ou la progression.</td></tr>
+                <tr><td>Apprentissage</td><td>La réussite exige-t-elle vraiment de mobiliser l'objectif pédagogique ?</td><td>Corriger l'alignement ou retirer une mécanique décorative.</td></tr>
+                <tr><td>Feedback</td><td>Les retours permettent-ils de comprendre l'erreur ou la réussite ?</td><td>Ajouter des indices, corrections, conséquences ou remédiations.</td></tr>
+                <tr><td>Débriefing</td><td>Quelles traces permettent d'expliciter ce qui a été appris ?</td><td>Prévoir une grille, une production, une justification ou une discussion guidée.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </section>
 
       <section id="ressources" class="view" aria-labelledby="ressources-title">
@@ -957,6 +1064,6 @@
     </div>
 
     <script src="assets/data.js"></script>
-    <script src="assets/app.js"></script>
+    <script src="assets/app.js?v=20260523-responsive-4"></script>
   </body>
 </html>

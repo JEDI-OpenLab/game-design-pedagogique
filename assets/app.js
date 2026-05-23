@@ -433,7 +433,8 @@ async function copyText(text, label = "Copié") {
 }
 
 function downloadText(filename, text) {
-  const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
+  const type = filename.endsWith(".json") ? "application/json;charset=utf-8" : "text/markdown;charset=utf-8";
+  const blob = new Blob([text], { type });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -467,20 +468,29 @@ function openResource(item) {
 }
 
 function canonicalTab(tabName) {
+  if ((tabName || "").startsWith("studio-")) return "studio";
   return {
     accueil: "presentation",
     comprendre: "presentation",
     "etat-art": "presentation",
     exemples: "concevoir",
+    matrice: "studio",
+    cartes: "studio",
   }[tabName] || tabName;
 }
 
 function navTab(tabName) {
   return {
-    matrice: "studio",
-    cartes: "studio",
     bibliotheque: "ressources",
   }[tabName] || tabName;
+}
+
+function tabAnchor(tabName) {
+  if ((tabName || "").startsWith("studio-")) return tabName;
+  return {
+    matrice: "studio-imaginer",
+    cartes: "studio-creer",
+  }[tabName] || "";
 }
 
 function showTab(tabName) {
@@ -489,10 +499,19 @@ function showTab(tabName) {
   if (!$(`#${target}.view`)) return;
   $$(".tab").forEach((item) => item.classList.toggle("is-active", item.dataset.tab === navTarget));
   $$(".view").forEach((item) => item.classList.toggle("is-active", item.id === target));
-  history.replaceState(null, "", `#${target}`);
-  window.scrollTo(0, 0);
-  requestAnimationFrame(() => window.scrollTo(0, 0));
-  setTimeout(() => window.scrollTo(0, 0), 0);
+  const anchor = tabAnchor(tabName);
+  history.replaceState(null, "", `#${anchor || target}`);
+  if (anchor) {
+    const node = document.getElementById(anchor);
+    if (node) {
+      requestAnimationFrame(() => node.scrollIntoView({ block: "start" }));
+      setTimeout(() => node.scrollIntoView({ block: "start" }), 50);
+    }
+  } else {
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+    setTimeout(() => window.scrollTo(0, 0), 0);
+  }
 }
 
 function projectValues() {
@@ -501,62 +520,181 @@ function projectValues() {
     audience: $("#project-audience").value.trim(),
     duration: $("#project-duration").value,
     mode: $("#project-mode").value,
+    need: $("#project-need").value.trim(),
     objective: $("#project-objective").value.trim(),
     level: $("#project-level").value,
     constraint: $("#project-constraint").value,
+    content: $("#project-content").value.trim(),
+    success: $("#project-success").value.trim(),
+    strategy: $("#project-strategy").value,
+    ludicObjective: $("#project-ludic-objective").value.trim(),
   };
 }
 
-function recommend(project) {
-  const { level, constraint, mode } = project;
-  if (mode === "Autoformation") {
-    return {
-      type: "Livre-jeu ou parcours à embranchements",
-      mechanics: ["Choix à conséquences", "Boucle essai-feedback-remédiation", "Progression sauvegardée"],
-      vigilance: "Prévoir des feedbacks explicatifs et des chemins de remédiation, pas seulement des fins différentes.",
-    };
-  }
-  if (constraint === "Temps court" || level === "Connaître") {
-    return {
-      type: "Jeu de cartes questions progressives",
-      mechanics: ["Questions de niveau 1 à 3", "Feedback immédiat", "Défi court"],
-      vigilance: "Écrire les feedbacks avant de produire beaucoup de cartes.",
-    };
-  }
-  if (level === "Analyser" || level === "Évaluer") {
-    return {
-      type: "Simulation, enquête ou jeu de rôle court",
-      mechanics: ["Dilemme", "Justification", "Débriefing critérié"],
-      vigilance: "Conserver les décisions des joueurs pour pouvoir débriefer les critères.",
-    };
-  }
-  if (level === "Créer") {
-    return {
-      type: "Production constructionniste de prototype",
-      mechanics: ["Production de jeu", "Test croisé", "Itération"],
-      vigilance: "Évaluer la démarche de conception autant que l'objet produit.",
-    };
-  }
-  if (constraint === "Grand groupe") {
-    return {
-      type: "Défi coopératif par équipes",
-      mechanics: ["Rôles distribués", "Objectif commun", "Synthèse collective"],
-      vigilance: "Limiter le matériel et rendre les consignes visibles pour toutes les équipes.",
-    };
-  }
+const strategyLabels = {
+  adaptation: "Adapter ou dégamifier un jeu existant",
+  seriousGaming: "Utiliser un jeu existant tel quel",
+  custom: "Créer un jeu simple sur mesure",
+  constructionist: "Faire créer le jeu par les apprenants",
+};
+
+const strategyGuidance = {
+  adaptation: {
+    deliverables: ["jeu source à analyser", "règles à conserver, retirer ou transformer", "cartes ou situations alignées", "règle courte de test"],
+    vigilance: "Identifier ce qui, dans le jeu source, soutient l'apprentissage et ce qui risque de le parasiter.",
+    next: "Choisir une règle du jeu source et écrire l'action d'apprentissage qu'elle doit provoquer.",
+    seedAction: "Répondre, justifier ou appliquer une notion dans une règle adaptée du jeu source",
+    seedMechanic: "Règle transformée depuis un jeu existant",
+  },
+  seriousGaming: {
+    deliverables: ["jeu support", "séquence d'animation", "questions de débriefing", "grille d'observation"],
+    vigilance: "Le jeu peut rester inchangé, mais l'animation et le débriefing doivent expliciter les apprentissages.",
+    next: "Écrire le moment où l'animateur fait le lien entre l'action de jeu et l'objectif pédagogique.",
+    seedAction: "Jouer puis expliciter les décisions, erreurs ou stratégies observées",
+    seedMechanic: "Jeu existant + débriefing guidé",
+  },
+  custom: {
+    deliverables: ["boucle de jeu minimale", "règles testables", "supports rapides", "protocole de test"],
+    vigilance: "Limiter le prototype à une boucle jouable avant d'ajouter narration, matériel ou variantes.",
+    next: "Décrire la plus petite action de jeu capable de produire un feedback pédagogique.",
+    seedAction: "Réaliser une action courte puis recevoir un feedback explicatif",
+    seedMechanic: "Boucle action-feedback-progression",
+  },
+  constructionist: {
+    deliverables: ["consigne de production", "critères de conception", "test croisé", "trace réflexive"],
+    vigilance: "Évaluer la démarche de conception autant que l'objet produit par les apprenants.",
+    next: "Définir ce que les apprenants doivent construire, tester, justifier et améliorer.",
+    seedAction: "Produire un élément de jeu, le tester, puis justifier une amélioration",
+    seedMechanic: "Production constructionniste + test croisé",
+  },
+};
+
+function strategyLabel(value) {
+  return strategyLabels[value] || value || "Stratégie à préciser";
+}
+
+function designGuidance(project) {
+  const base = strategyGuidance[project.strategy] || strategyGuidance.adaptation;
+  const checkpoints = [
+    `Niveau dominant : ${project.level}`,
+    `Contrainte à surveiller : ${project.constraint}`,
+  ];
+  if (project.mode === "Autoformation") checkpoints.push("Prévoir des feedbacks autonomes et des remédiations explicites.");
+  if (project.constraint === "Grand groupe") checkpoints.push("Rendre les consignes visibles et limiter les manipulations longues.");
+  if (project.level === "Créer") checkpoints.push("Prévoir une trace de conception, pas seulement une performance de jeu.");
+  return { ...base, checkpoints };
+}
+
+function trivialValues() {
   return {
-    type: "Escape game léger ou parcours de décisions",
-    mechanics: ["Énigmes alignées", "Indices progressifs", "Débriefing"],
-    vigilance: "Chaque énigme doit faire manipuler le contenu visé.",
+    title: $("#tp-title").value.trim(),
+    winCondition: $("#tp-win-condition").value.trim(),
+    level1Cards: Number($("#tp-level1-count").value || 0),
+    level2Cards: Number($("#tp-level2-count").value || 0),
+    level3Cards: Number($("#tp-level3-count").value || 0),
+    material: $("#tp-material").value.trim(),
+    finalTask: $("#tp-final-task").value.trim(),
+    debrief: $("#tp-debrief").value.trim(),
+  };
+}
+
+function checklistReport() {
+  return checklistItems.map((item, index) => ({
+    item,
+    checked: Boolean(state.checks[index]),
+  }));
+}
+
+function diceProject() {
+  const project = projectValues();
+  return {
+    metadata: {
+      version: "2026-05-23.dice-1",
+      signature: "JEDI-OpenLab · Pédagogie ouverte, conçue avec soin.",
+      export: new Date().toISOString(),
+    },
+    method: "D.I.C.E.",
+    define: {
+      title: project.title,
+      audience: project.audience,
+      duration: project.duration,
+      mode: project.mode,
+      need: project.need,
+      pedagogicalObjective: project.objective,
+      dominantLevel: project.level,
+      mainConstraint: project.constraint,
+      contents: project.content,
+      successCriteria: project.success,
+    },
+    imagine: {
+      strategy: {
+        id: project.strategy,
+        label: strategyLabel(project.strategy),
+      },
+      ludicObjective: project.ludicObjective,
+      alignmentMatrix: state.matrix,
+    },
+    create: {
+      cards: state.cards,
+      trivialPursuitModule: trivialValues(),
+    },
+    evaluate: {
+      checklist: checklistReport(),
+      testProtocol: [
+        "Faire jouer une boucle courte du prototype.",
+        "Observer compréhension des règles, engagement, feedbacks et traces.",
+        "Débriefer ce qui a été appris, ce qui a bloqué et ce qui doit être simplifié.",
+      ],
+    },
+  };
+}
+
+function diceJson() {
+  return JSON.stringify(diceProject(), null, 2);
+}
+
+function trivialMarkdown() {
+  const tp = trivialValues();
+  return `## Module guidé : plateau progressif type Trivial Pursuit
+
+- Nom du module : ${tp.title}
+- Condition de victoire : ${tp.winCondition}
+- Cartes niveau 1 : ${tp.level1Cards}
+- Cartes niveau 2 : ${tp.level2Cards}
+- Cartes niveau 3 : ${tp.level3Cards}
+- Matériel : ${tp.material}
+
+### Tâche finale
+
+${tp.finalTask}
+
+### Débriefing prévu
+
+${tp.debrief}
+`;
+}
+
+function checklistMarkdown() {
+  return checklistReport().map((entry) => `- [${entry.checked ? "x" : " "}] ${entry.item}`).join("\n");
+}
+
+function matrixSeedFromProject(project) {
+  const guidance = designGuidance(project);
+  return {
+    objective: project.objective,
+    action: guidance.seedAction,
+    mechanic: guidance.seedMechanic,
+    feedback: "Feedback explicatif, conséquence de jeu ou correction commentée",
+    trace: project.success || "Réponse, justification, production ou observation de groupe",
   };
 }
 
 function briefMarkdown() {
   const project = projectValues();
-  const reco = recommend(project);
+  const guidance = designGuidance(project);
   return `# ${project.title}
 
-## Cadrage
+## D - Définir
 
 - Public : ${project.audience}
 - Durée : ${project.duration}
@@ -564,31 +702,57 @@ function briefMarkdown() {
 - Niveau dominant : ${project.level}
 - Contrainte forte : ${project.constraint}
 
-## Objectif pédagogique
+### Besoin pédagogique
+
+${project.need}
+
+### Objectif pédagogique
 
 ${project.objective}
 
-## Type de jeu recommandé
+### Contenus ou notions
 
-${reco.type}
+${project.content}
 
-## Mécaniques proposées
+### Critères de réussite
 
-${reco.mechanics.map((item) => `- ${item}`).join("\n")}
+${project.success}
 
-## Point de vigilance
+## I - Imaginer
 
-${reco.vigilance}
+- Stratégie : ${strategyLabel(project.strategy)}
+- Objectif ludique : ${project.ludicObjective}
+- Livrables prioritaires : ${guidance.deliverables.join(", ")}
+- Vigilance : ${guidance.vigilance}
+
+### Matrice d'alignement
+
+${matrixMarkdown()}
+
+## C - Créer
+
+${trivialMarkdown()}
+
+${cardsMarkdown()}
+
+## E - Évaluer
+
+${checklistMarkdown()}
+
 `;
 }
 
 function renderRecommendation() {
-  const reco = recommend(projectValues());
+  const project = projectValues();
+  const guidance = designGuidance(project);
   $("#recommendation").innerHTML = `
-    <div class="reco-title">${escapeHtml(reco.type)}</div>
+    <div class="reco-title">${escapeHtml(strategyLabel(project.strategy))}</div>
     <ul class="reco-list">
-      ${reco.mechanics.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-      <li><strong>Vigilance :</strong> ${escapeHtml(reco.vigilance)}</li>
+      <li><strong>Objectif ludique :</strong> ${escapeHtml(project.ludicObjective || "À formuler")}</li>
+      <li><strong>Livrables :</strong> ${escapeHtml(guidance.deliverables.join(" · "))}</li>
+      <li><strong>Prochaine action :</strong> ${escapeHtml(guidance.next)}</li>
+      <li><strong>Vigilance :</strong> ${escapeHtml(guidance.vigilance)}</li>
+      ${guidance.checkpoints.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
     </ul>
   `;
 }
@@ -907,25 +1071,23 @@ function bindEvents() {
     }
   });
 
-  $$("#project-form input, #project-form select, #project-form textarea").forEach((field) => {
-    field.addEventListener("input", renderRecommendation);
+  ["#project-form", "#imagine-form", "#trivial-module-form"].forEach((selector) => {
+    $$("input, select, textarea", $(selector)).forEach((field) => {
+      field.addEventListener("input", renderRecommendation);
+      field.addEventListener("change", renderRecommendation);
+    });
   });
 
-  $("#copy-brief").addEventListener("click", () => copyText(briefMarkdown(), "Fiche copiée"));
-  $("#download-brief").addEventListener("click", () => downloadText("fiche-game-design-pedagogique.md", briefMarkdown()));
+  $("#copy-brief").addEventListener("click", () => copyText(briefMarkdown(), "Dossier copié"));
+  $("#download-brief").addEventListener("click", () => downloadText("dossier-dice-game-design-pedagogique.md", briefMarkdown()));
+  $("#copy-json").addEventListener("click", () => copyText(diceJson(), "JSON copié"));
+  $("#download-json").addEventListener("click", () => downloadText("dossier-dice-game-design-pedagogique.json", diceJson()));
   $("#add-reco-to-matrix").addEventListener("click", () => {
     const project = projectValues();
-    const reco = recommend(project);
-    state.matrix.push({
-      objective: project.objective,
-      action: "À préciser pendant le prototype",
-      mechanic: reco.mechanics[0],
-      feedback: reco.vigilance,
-      trace: "Observation + débriefing",
-    });
+    state.matrix.push(matrixSeedFromProject(project));
     saveMatrix();
     renderMatrix();
-    toast("Ajouté à la matrice");
+    toast("Ligne ajoutée à la matrice");
   });
 
   $("#checklist").addEventListener("change", (event) => {
@@ -974,6 +1136,7 @@ function bindEvents() {
     renderCards();
   });
   $("#copy-cards").addEventListener("click", () => copyText(cardsMarkdown(), "Cartes copiées"));
+  $("#copy-trivial-spec").addEventListener("click", () => copyText(trivialMarkdown(), "Cahier des charges copié"));
   $("#cards-list").addEventListener("click", (event) => {
     const index = event.target.dataset.removeCard;
     if (index === undefined) return;
@@ -1001,11 +1164,13 @@ renderLibrary();
 bindEvents();
 
 if (location.hash) {
-  const target = canonicalTab(location.hash.replace("#", ""));
-  if ($(`#${target}`)) showTab(target);
+  const requested = location.hash.replace("#", "");
+  const target = canonicalTab(requested);
+  if ($(`#${target}.view`)) showTab(target);
 }
 
 window.addEventListener("hashchange", () => {
-  const target = canonicalTab(location.hash.replace("#", ""));
-  if ($(`#${target}`)) showTab(target);
+  const requested = location.hash.replace("#", "");
+  const target = canonicalTab(requested);
+  if ($(`#${target}.view`)) showTab(target);
 });
