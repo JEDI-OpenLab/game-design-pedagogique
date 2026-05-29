@@ -780,6 +780,13 @@ function matrixMarkdown() {
 }
 
 function renderMatrix() {
+  const matrixLabels = {
+    objective: "Objectif",
+    action: "Action joueur",
+    mechanic: "Mécanique",
+    feedback: "Feedback",
+    trace: "Trace",
+  };
   if (!state.matrix.length) {
     state.matrix.push({
       objective: "Concevoir un prototype aligné",
@@ -795,9 +802,9 @@ function renderMatrix() {
       (row, index) => `
       <tr>
         ${["objective", "action", "mechanic", "feedback", "trace"]
-          .map((key) => `<td><input data-row="${index}" data-key="${key}" value="${escapeHtml(row[key] || "")}"></td>`)
+          .map((key) => `<td data-label="${matrixLabels[key]}"><input data-row="${index}" data-key="${key}" value="${escapeHtml(row[key] || "")}"></td>`)
           .join("")}
-        <td><button class="remove-row" type="button" data-remove="${index}" title="Supprimer">×</button></td>
+        <td data-label="Action"><button class="remove-row" type="button" data-remove="${index}" title="Supprimer">×</button></td>
       </tr>
     `
     )
