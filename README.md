@@ -71,8 +71,10 @@ Les documents tiers ne sont pas recopiés dans le dépôt public tant que leurs 
 
 ## Licence
 
-Ce projet est diffusé sous licence MIT.
+Ce projet est une ressource éducative libre (REL) au sens de la Recommandation UNESCO de 2019.
+
+Sauf mention contraire, les contenus originaux sont placés sous licence Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 Voir [LICENSE.md](LICENSE.md).
 
-Les documents tiers cités conservent les droits propres de leurs auteurs et éditeurs lorsqu'ils ne font pas partie des contenus originaux du dépôt.
+Les contenus tiers conservent leurs droits et licences propres. Voir le site principal de JEDI-OpenLab pour plus d'informations.
