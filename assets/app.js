@@ -1003,7 +1003,7 @@ function renderLibraryReader(id) {
 }
 
 function bindEvents() {
-  $$(".tab").forEach((tab) => {
+  $$(".tab[data-tab]").forEach((tab) => {
     tab.addEventListener("click", () => showTab(tab.dataset.tab));
   });
 
