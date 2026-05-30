@@ -71,8 +71,8 @@ Les documents tiers ne sont pas recopiés dans le dépôt public tant que leurs 
 
 ## Licence
 
-- Contenus originaux : Creative Commons Attribution - ShareAlike 4.0 International.
-- Code de la webapp et scripts : MIT.
-- Documents tiers cités : droits propres de leurs auteurs et éditeurs.
+Ce projet est diffusé sous licence MIT.
 
 Voir [LICENSE.md](LICENSE.md).
+
+Les documents tiers cités conservent les droits propres de leurs auteurs et éditeurs lorsqu'ils ne font pas partie des contenus originaux du dépôt.

@@ -1,23 +1,21 @@
-# Licence
+MIT License
 
-Ce dépôt utilise une licence double.
+Copyright (c) 2026 JEDI-OpenLab
 
-## Contenus pédagogiques
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Sauf mention contraire, les contenus originaux du dépôt sont diffusés sous licence **Creative Commons Attribution - ShareAlike 4.0 International (CC BY-SA 4.0)**.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Vous pouvez les partager, adapter et redistribuer, y compris dans un cadre professionnel, à condition de créditer la source et de partager les adaptations sous une licence compatible.
-
-Identifiant SPDX : `CC-BY-SA-4.0`
-
-## Code
-
-Sauf mention contraire, le code source de la webapp statique, les scripts et les feuilles de style sont diffusés sous licence **MIT**.
-
-Identifiant SPDX : `MIT`
-
-## Documents tiers
-
-Les références bibliographiques, PDF, rapports, extraits d'ouvrages, images ou ressources externes cités dans le projet restent soumis aux droits de leurs auteurs, éditeurs ou ayants droit.
-
-Le dépôt ne doit pas republier ces documents sans droit explicite. Les ressources tierces doivent être décrites sous forme de notices, liens, résumés et citations courtes.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
