@@ -113,7 +113,7 @@ bien qu’ils récompensent les joueurs en leur donnant des capacités
 supplémentaires pour atteindre leurs objectifs.
 Dans de nombreux jeux de course, par exemple, il est possible d’obtenir 
 un bonus de vitesse pendant une durée très limitée si le véhicule reste 
-derrière un autre véhicule – élément non-négligeable pour renverser 
+derrière un autre véhicule, élément non-négligeable pour renverser 
 le cours d’une partie.
 
 ### Notes et exemples
@@ -985,7 +985,7 @@ de la communauté (qu’ils soient clients ou pas).
 ## Économie virtuelle / Monnaire fictive
 
 L’économie virtuelle est une économie fictive qui prend place dans 
-votre projet de gamification – que ce soit 
+votre projet de gamification, que ce soit 
 via 
 une monnaie numérique 
 ou physique. Cette monnaie est représentée sous une forme de points 
@@ -1004,7 +1004,7 @@ pour représenter la progression de vos utilisateurs.
 Objectif
 
 - Créer une économie alternative au sein du projet 
-de gamification – par exemple, pour permettre 
+de gamification, par exemple, pour permettre 
 d’acheter des objets cosmétiques ou de nouveaux 
 échanges entre utilisateurs.
 
